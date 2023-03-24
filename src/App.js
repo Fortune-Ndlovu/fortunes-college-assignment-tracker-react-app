@@ -1,6 +1,6 @@
 import Welcome from "./components/Welcome";
 import AssignmentTracker from "./components/AssignmentTracker.js";
-import NewClassMemberForm from "./components/NewClassMemberForm";
+import NewCollegeModuleForm from "./components/NewCollegeModuleForm";
 import { useState } from "react";
 import {
   Route,
@@ -109,7 +109,7 @@ function App() {
                   </div>
                   <div className="row justify-content-center">
                     <div className="col-4">
-                      <NewClassMemberForm onSubmitHandler={addCollegeModule} />
+                      <NewCollegeModuleForm onSubmitHandler={addCollegeModule} />
                     </div>
                   </div>
                 </>
