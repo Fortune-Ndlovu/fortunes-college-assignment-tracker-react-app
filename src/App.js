@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 import About from "./components/About";
 import SingleCollegeModule from "./components/SingleCollegeModule";
-import EditClassMember from "./components/EditClassMember";
+import EditCollegeModule from "./components/EditCollegeModule";
 
 // Sample data for testing purposes
 const sampleData = [
@@ -84,7 +84,7 @@ function App() {
       <div className="container-sm p-2">
         <header className="p-3 text-center bg-dark text-light rounded-3">
           <Link to="/">
-            <h2>Student Assignment Tracker 📗</h2>
+            <h2>Student Assignment Tracker📗</h2>
           </Link>
           <Link to="/about">About</Link>
         </header>
@@ -128,7 +128,7 @@ function App() {
             <Route
               path="/edit/:moduleID"
               element={
-                <EditClassMember
+                <EditCollegeModule
                   modules={collegeModules}
                   onEdit={editCollegeModule}
                 />
