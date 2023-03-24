@@ -10,7 +10,7 @@ import {
   useParams
 } from "react-router-dom";
 import About from "./components/About";
-import SingleClassMember from "./components/SingleClassMember";
+import SingleCollegeModule from "./components/SingleCollegeModule";
 import EditClassMember from "./components/EditClassMember";
 
 // Sample data for testing purposes
@@ -120,7 +120,7 @@ function App() {
 
             <Route
               path="/module/:moduleID"
-              element={<SingleClassMember members={collegeModules} />}
+              element={<SingleCollegeModule members={collegeModules} />}
             />
 
             <Route
