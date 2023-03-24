@@ -1,5 +1,5 @@
 import Welcome from "./components/Welcome";
-import ClassTeam from "./components/ClassTeam.js";
+import AssignmentTracker from "./components/AssignmentTracker.js";
 import NewClassMemberForm from "./components/NewClassMemberForm";
 import { useState } from "react";
 import {
@@ -101,8 +101,8 @@ function App() {
                   </div>
                   <div className="row justify-content-center">
                     <div className="col-4">
-                      <ClassTeam
-                        members={collegeModules}
+                      <AssignmentTracker
+                        modules={collegeModules}
                         onDelete={deleteCollegeModule}
                       />
                     </div>
@@ -119,7 +119,7 @@ function App() {
             <Route path="/about" element={<About />} />
 
             <Route
-              path="/member/:studentID"
+              path="/module/:moduleID"
               element={<SingleClassMember members={collegeModules} />}
             />
 

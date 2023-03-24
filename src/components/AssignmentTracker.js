@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ClassTeam = ({ members, onDelete }) => {
+const AssignmentTracker = ({ modules, onDelete }) => {
   const handleDelete = (e) => {
     onDelete(Number(e.target.value));
   };
 
   return (
-    <ul id="Class-List">
-      {members.map((item) => (
+    <ul id="Module-List">
+      {modules.map((item) => (
         <li key={item.id}>
-          <Link to={`/member/${item.id}`}>{item.name}</Link>&nbsp;
+          <Link to={`/module/${item.id}`}>{item.name}</Link>&nbsp;
           <Link to={`/edit/${item.id}`}>Edit</Link>
           <button
             className="btn btn-sm btn-danger"
@@ -25,4 +25,4 @@ const ClassTeam = ({ members, onDelete }) => {
   );
 };
 
-export default ClassTeam;
+export default AssignmentTracker;
