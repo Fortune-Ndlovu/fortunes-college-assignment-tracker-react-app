@@ -13,8 +13,7 @@ const SingleCollegeModule = ({ modules }) => {
 
   return (
     <div>
-      {moduleToDisplay.name}module is tracking these assignments
-      {moduleToDisplay.grade}
+      {`${moduleToDisplay.name} module is tracking these assignments - ${moduleToDisplay.grade} - for you`}
     </div>
   );
 };

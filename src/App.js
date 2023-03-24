@@ -109,7 +109,9 @@ function App() {
                   </div>
                   <div className="row justify-content-center">
                     <div className="col-4">
-                      <NewCollegeModuleForm onSubmitHandler={addCollegeModule} />
+                      <NewCollegeModuleForm
+                        onSubmitHandler={addCollegeModule}
+                      />
                     </div>
                   </div>
                 </>
@@ -120,14 +122,14 @@ function App() {
 
             <Route
               path="/module/:moduleID"
-              element={<SingleCollegeModule members={collegeModules} />}
+              element={<SingleCollegeModule modules={collegeModules} />}
             />
 
             <Route
-              path="/edit/:studentID"
+              path="/edit/:moduleID"
               element={
                 <EditClassMember
-                  members={collegeModules}
+                  modules={collegeModules}
                   onEdit={editCollegeModule}
                 />
               }
