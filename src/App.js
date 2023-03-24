@@ -1,4 +1,3 @@
-import "./App.css";
 import Welcome from "./components/Welcome";
 import ClassTeam from "./components/ClassTeam.js";
 import NewClassMemberForm from "./components/NewClassMemberForm";
