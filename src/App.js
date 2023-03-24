@@ -40,43 +40,43 @@ const sampleData = [
 function App() {
   // Make the sampleData a state variable so that when it changes the
   // relevant components are also updated.
-  const [classMembers, setClassMembers] = useState(sampleData);
+  const [collegeModules, setCollegeModules] = useState(sampleData);
 
-  const addClassMember = (newClassMember) => {
+  const addCollegeModule = (newCollegeModule) => {
     // Generate a random number between 1 and 10000 to use an
     // id (not perfect but will do for now)
     const randomID = Math.floor(Math.random() * 10000) + 1;
 
-    // Add an id property to the newClassMember JS object
-    newClassMember.id = randomID;
+    // Add an id property to the newCollegeModule JS object
+    newCollegeModule.id = randomID;
 
-    // Add the newClassMember JS object to the sampleData array
+    // Add the newCollegeModule JS object to the sampleData array
     // Notice we are using the spread operator
-    setClassMembers([...classMembers, newClassMember]);
+    setCollegeModules([...collegeModules, newCollegeModule]);
 
-    console.log("Sample data is now: ", classMembers);
+    console.log("Sample data is now: ", collegeModules);
   };
 
-  const deleteClassMember = (classMemberID) => {
-    // Create a new array with the relevant class member filtered out
-    let updatedClassMembers = classMembers.filter(
-      (member) => member.id !== classMemberID
+  const deleteCollegeModule = (collegeModuleID) => {
+    // Create a new array with the relevant college module filtered out
+    let updatedCollegeModules = collegeModules.filter(
+      (module) => module.id !== collegeModuleID
     );
 
     // Update the state variable to be this new array
-    setClassMembers(updatedClassMembers);
+    setCollegeModules(updatedCollegeModules);
   };
 
-  const editClassMember = (theEditClassMember) => {
-    let newClassMembers = [...classMembers];
+  const editCollegeModule = (theEditCollegeModule) => {
+    let newCollegeModules = [...collegeModules];
 
-    for (let i = 0; i < newClassMembers.length; i++) {
-      if (newClassMembers[i].id == theEditClassMember.id) {
-        newClassMembers[i] = theEditClassMember;
+    for (let i = 0; i < newCollegeModules.length; i++) {
+      if (newCollegeModules[i].id == theEditCollegeModule.id) {
+        newCollegeModules[i] = theEditCollegeModule;
       }
     }
 
-    setClassMembers(newClassMembers);
+    setCollegeModules(newCollegeModules);
   };
 
   return (
@@ -84,7 +84,7 @@ function App() {
       <div className="container-sm p-2">
         <header className="p-3 text-center bg-dark text-light rounded-3">
           <Link to="/">
-            <h2>Student Assignment Tracker</h2>
+            <h2>Student Assignment Tracker 📗</h2>
           </Link>
           <Link to="/about">About</Link>
         </header>
@@ -102,14 +102,14 @@ function App() {
                   <div className="row justify-content-center">
                     <div className="col-4">
                       <ClassTeam
-                        members={classMembers}
-                        onDelete={deleteClassMember}
+                        members={collegeModules}
+                        onDelete={deleteCollegeModule}
                       />
                     </div>
                   </div>
                   <div className="row justify-content-center">
                     <div className="col-4">
-                      <NewClassMemberForm onSubmitHandler={addClassMember} />
+                      <NewClassMemberForm onSubmitHandler={addCollegeModule} />
                     </div>
                   </div>
                 </>
@@ -120,15 +120,15 @@ function App() {
 
             <Route
               path="/member/:studentID"
-              element={<SingleClassMember members={classMembers} />}
+              element={<SingleClassMember members={collegeModules} />}
             />
 
             <Route
               path="/edit/:studentID"
               element={
                 <EditClassMember
-                  members={classMembers}
-                  onEdit={editClassMember}
+                  members={collegeModules}
+                  onEdit={editCollegeModule}
                 />
               }
             />
