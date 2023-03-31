@@ -27,7 +27,9 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
       </div>
       <div>Assignment Grade: {moduleToDisplay.grade}</div>
       <br />
-      <Link to={`/edit/${moduleToDisplay.id}`}>Edit</Link>
+      <Link to={`/edit/${moduleToDisplay.id}`}>
+        <button className="btn btn-sm btn-success">Edit</button>
+      </Link>
       <button className="btn btn-sm btn-danger" onClick={handleDelete}>
         del
       </button>
