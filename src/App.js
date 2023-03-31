@@ -16,14 +16,24 @@ import EditCollegeModule from "./components/EditCollegeModule";
 const sampleData = [
   {
     id: 1,
-    name: "Web Development Frameworks"
+    name: "Web Development Frameworks",
+    assignmentName: "",
+    assignmentDateTimeGivenOut: "",
+    assignmentDateTimeGivenDue: "",
+    assignmentGrade: "",
+    createListOfAssignmentNotes: [{ noteName: "" }]
   },
   {
     id: 2,
-    name: "Server Side Programming"
+    name: "Server Side Programming",
+    assignmentName: "",
+    assignmentDateTimeGivenOut: "",
+    assignmentDateTimeGivenDue: "",
+    assignmentGrade: "",
+    createListOfAssignmentNotes: [{ noteName: "" }]
   }
 ];
-
+console.log(sampleData);
 function App() {
   // Make the sampleData a state variable so that when it changes the
   // relevant components are also updated.

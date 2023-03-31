@@ -14,9 +14,13 @@ const EditCollegeModule = ({ modules, onEdit }) => {
 
     moduleToEdit.name = e.target.moduleName.value;
     moduleToEdit.assignmentName = e.target.assignmentName.value;
-    moduleToEdit.assignmentDateTimeGivenOut = e.target.assignmentDateTimeGivenOut.value;
-    moduleToEdit.assignmentDateTimeGivenDue = e.target.assignmentDateTimeGivenDue.value;
+    moduleToEdit.assignmentDateTimeGivenOut =
+      e.target.assignmentDateTimeGivenOut.value;
+    moduleToEdit.assignmentDateTimeGivenDue =
+      e.target.assignmentDateTimeGivenDue.value;
     moduleToEdit.grade = e.target.assignmentGrade.value;
+    moduleToEdit.createListOfAssignmentNotes = e.target.createListOfAssignmentNotes.value;
+
 
     onEdit(moduleToEdit);
     navigate(`/module/${moduleToEdit.id}`);
@@ -67,15 +71,25 @@ const EditCollegeModule = ({ modules, onEdit }) => {
           name="assignmentDateTimeGivenDue"
         />
       </div>
+      <br />
       <div className="form-group">
-        <br />
-        <label htmlFor="theAssignmentGrade">Assignment Grade</label>
+        <label htmlFor="assignmentGrade">Assignment Grade</label>
         <input
           type="text"
           className="form-control"
           defaultValue={moduleToEdit.grade}
           name="assignmentGrade"
         />
+      </div>
+      <br />
+      <div className="form-group">
+        <label htmlFor="createListOfAssignmentNotes">Create Lists of Assignment Text Note:</label>
+        <input
+          type="text"
+          className="form-control"
+          defaultValue={moduleToEdit.createListOfAssignmentNotes}
+          name="createListOfAssignmentNotes"
+        /> <button>Add a note</button>
       </div>
       <button type="submit" className="btn btn-primary">
         Update
