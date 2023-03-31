@@ -14,14 +14,12 @@ const EditCollegeModule = ({ modules, onEdit }) => {
 
     moduleToEdit.name = e.target.moduleName.value;
     moduleToEdit.assignmentName = e.target.assignmentName.value;
-    moduleToEdit.assignmentDateTimeGivenOut =
-      e.target.assignmentDateTimeGivenOut.value;
-    moduleToEdit.assignmentDateTimeGivenDue =
-      e.target.assignmentDateTimeGivenDue.value;
+    moduleToEdit.assignmentDateTimeGivenOut = e.target.assignmentDateTimeGivenOut.value;
+    moduleToEdit.assignmentDateTimeGivenDue = e.target.assignmentDateTimeGivenDue.value;
     moduleToEdit.grade = e.target.assignmentGrade.value;
 
     onEdit(moduleToEdit);
-    navigate("/");
+    navigate(`/module/${moduleToEdit.id}`);
   };
 
   return (
