@@ -20,10 +20,10 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
       <div>Module Name: {moduleToDisplay.name}</div>
       <div>Assignment Name: {moduleToDisplay.assignmentName}</div>
       <div>
-        Assignment Date Given Out: {moduleToDisplay.assignmentDateGivenOut}
+        Assignment Date Given Out: {moduleToDisplay.assignmentDateTimeGivenOut}
       </div>
       <div>
-        Assignment Date Given Due: {moduleToDisplay.assignmentDateGivenDue}
+        Assignment Date Given Due: {moduleToDisplay.assignmentDateTimeGivenDue}
       </div>
       <div>Assignment Grade: {moduleToDisplay.grade}</div>
       <br />
