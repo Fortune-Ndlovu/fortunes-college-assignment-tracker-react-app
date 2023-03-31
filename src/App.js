@@ -83,10 +83,7 @@ function App() {
                 <>
                   <div className="row justify-content-center">
                     <div className="col-4">
-                      <AssignmentTracker
-                        modules={collegeModules}
-                        onDelete={deleteCollegeModule}
-                      />
+                      <AssignmentTracker modules={collegeModules} />
                     </div>
                   </div>
                   <div className="row justify-content-center">
@@ -104,7 +101,12 @@ function App() {
 
             <Route
               path="/module/:moduleID"
-              element={<SingleCollegeModule modules={collegeModules} />}
+              element={
+                <SingleCollegeModule
+                  modules={collegeModules}
+                  onDelete={deleteCollegeModule}
+                />
+              }
             />
 
             <Route
