@@ -19,6 +19,12 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
     <div>
       <div>Module Name: {moduleToDisplay.name}</div>
       <div>Assignment Name: {moduleToDisplay.assignmentName}</div>
+      <div>
+        Assignment Date Given Out: {moduleToDisplay.assignmentDateGivenOut}
+      </div>
+      <div>
+        Assignment Date Given Due: {moduleToDisplay.assignmentDateGivenDue}
+      </div>
       <div>Assignment Grade: {moduleToDisplay.grade}</div>
       <br />
       <Link to={`/edit/${moduleToDisplay.id}`}>Edit</Link>

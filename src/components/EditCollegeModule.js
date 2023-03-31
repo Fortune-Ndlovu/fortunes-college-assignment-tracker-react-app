@@ -14,6 +14,8 @@ const EditCollegeModule = ({ modules, onEdit }) => {
 
     moduleToEdit.name = e.target.moduleName.value;
     moduleToEdit.assignmentName = e.target.assignmentName.value;
+    moduleToEdit.assignmentDateGivenOut = e.target.assignmentDateGivenOut.value;
+    moduleToEdit.assignmentDateGivenDue = e.target.assignmentDateGivenDue.value;
     moduleToEdit.grade = e.target.assignmentGrade.value;
 
     onEdit(moduleToEdit);
@@ -39,6 +41,26 @@ const EditCollegeModule = ({ modules, onEdit }) => {
           className="form-control"
           defaultValue={moduleToEdit.assignmentName}
           name="assignmentName"
+        />
+      </div>
+      <br />
+      <div className="form-group">
+        <label htmlFor="assignmentDateGivenOut">Assignment Date Given Out</label>
+        <input
+          type="date"
+          className="form-control"
+          defaultValue={moduleToEdit.assignmentDateGivenOut}
+          name="assignmentDateGivenOut"
+        />
+      </div>
+      <br />
+      <div className="form-group">
+        <label htmlFor="assignmentDateGivenDue">Assignment Date Given Due</label>
+        <input
+          type="date"
+          className="form-control"
+          defaultValue={moduleToEdit.assignmentDateGivenDue}
+          name="assignmentDateGivenDue"
         />
       </div>
       <div className="form-group">
