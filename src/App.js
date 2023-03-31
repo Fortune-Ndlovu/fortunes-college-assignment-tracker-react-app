@@ -1,4 +1,3 @@
-import Welcome from "./components/Welcome";
 import AssignmentTracker from "./components/AssignmentTracker.js";
 import NewCollegeModuleForm from "./components/NewCollegeModuleForm";
 import { useState } from "react";
@@ -22,18 +21,6 @@ const sampleData = [
   {
     id: 2,
     name: "Server Side Programming"
-  },
-  {
-    id: 3,
-    name: "Project Management"
-  },
-  {
-    id: 4,
-    name: "Detabase Technology"
-  },
-  {
-    id: 5,
-    name: "Digital Literacies"
   }
 ];
 
@@ -94,11 +81,6 @@ function App() {
               path="/"
               element={
                 <>
-                  <div className="row justify-content-center">
-                    <div className="col-4">
-                      <Welcome />
-                    </div>
-                  </div>
                   <div className="row justify-content-center">
                     <div className="col-4">
                       <AssignmentTracker
