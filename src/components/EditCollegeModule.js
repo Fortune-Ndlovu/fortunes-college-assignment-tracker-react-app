@@ -11,10 +11,10 @@ const EditCollegeModule = ({ modules, onEdit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.moduleName.value);
 
     moduleToEdit.name = e.target.moduleName.value;
-    moduleToEdit.grade = e.target.moduleGrade.value;
+    moduleToEdit.assignmentName = e.target.assignmentName.value;
+    moduleToEdit.grade = e.target.assignmentGrade.value;
 
     onEdit(moduleToEdit);
     navigate("/");
@@ -22,9 +22,38 @@ const EditCollegeModule = ({ modules, onEdit }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" defaultValue={moduleToEdit.name} name="moduleName" />
-      <input type="text" defaultValue={moduleToEdit.grade} name="moduleGrade" />
-      <button type="submit">Update</button>
+      <div className="form-group">
+        <label htmlFor="moduleName">Module Name</label>
+        <input
+          type="text"
+          className="form-control"
+          defaultValue={moduleToEdit.name}
+          name="moduleName"
+        />
+      </div>
+      <br />
+      <div className="form-group">
+        <label htmlFor="assignmentName">Assignment Name</label>
+        <input
+          type="text"
+          className="form-control"
+          defaultValue={moduleToEdit.assignmentName}
+          name="assignmentName"
+        />
+      </div>
+      <div className="form-group">
+        <br />
+        <label htmlFor="theAssignmentGrade">Assignment Grade</label>
+        <input
+          type="text"
+          className="form-control"
+          defaultValue={moduleToEdit.grade}
+          name="assignmentGrade"
+        />
+      </div>
+      <button type="submit" className="btn btn-primary">
+        Update
+      </button>
     </form>
   );
 };

@@ -17,7 +17,9 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
 
   return (
     <div>
-      {`${moduleToDisplay.name} module is tracking these assignments - ${moduleToDisplay.grade} - for you`}{" "}
+      <div>Module Name: {moduleToDisplay.name}</div>
+      <div>Assignment Name: {moduleToDisplay.assignmentName}</div>
+      <div>Assignment Grade: {moduleToDisplay.grade}</div>
       <br />
       <Link to={`/edit/${moduleToDisplay.id}`}>Edit</Link>
       <button className="btn btn-sm btn-danger" onClick={handleDelete}>
