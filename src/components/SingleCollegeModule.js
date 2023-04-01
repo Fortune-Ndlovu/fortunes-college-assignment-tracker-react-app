@@ -27,6 +27,14 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
       </div>
       <div>Assignment Grade: {moduleToDisplay.grade}</div>
       <br />
+      <div>
+        Notes:
+        <ul>
+          {moduleToDisplay.notes.map((note, index) => (
+            <li key={index}>{note}</li>
+          ))}
+        </ul>
+      </div>
       <Link to={`/edit/${moduleToDisplay.id}`}>Edit</Link>
       <button className="btn btn-sm btn-danger" onClick={handleDelete}>
         del
