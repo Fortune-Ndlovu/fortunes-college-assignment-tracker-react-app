@@ -30,19 +30,21 @@ function App() {
   const [collegeModules, setCollegeModules] = useState(sampleData);
 
   const addCollegeModule = (newCollegeModule) => {
-    // Generate a random number between 1 and 10000 to use an
-    // id (not perfect but will do for now)
-    const randomID = Math.floor(Math.random() * 10000) + 1;
+    // Check if the newCollegeModule already has an id property
+    if (!newCollegeModule.id) {
+      // Generate a random number between 1 and 10000 to use an id
+      const randomID = Math.floor(Math.random() * 10000) + 1;
 
-    // Add an id property to the newCollegeModule JS object
-    newCollegeModule.id = randomID;
+      // Add the new id property to the newCollegeModule object
+      newCollegeModule.id = randomID;
+    }
 
-    // Add the newCollegeModule JS object to the sampleData array
-    // Notice we are using the spread operator
+    // Add the newCollegeModule JS object to the collegeModules array
+    // using the spread operator
     setCollegeModules([...collegeModules, newCollegeModule]);
-
-    console.log("Sample data is now: ", collegeModules);
   };
+
+  console.log("Sample data is now: ", collegeModules);
 
   const deleteCollegeModule = (collegeModuleID) => {
     // Create a new array with the relevant college module filtered out

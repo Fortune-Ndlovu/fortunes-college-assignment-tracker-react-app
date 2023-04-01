@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditCollegeModule = ({ modules, onEdit }) => {
+  console.log("modules", modules);
   const urlParameters = useParams();
   const navigate = useNavigate();
 
