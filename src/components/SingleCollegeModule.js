@@ -30,7 +30,7 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
       <div>
         Notes:
         <ul>
-          {moduleToDisplay.notes.map((note, index) => (
+          {moduleToDisplay.notes && moduleToDisplay.notes.map((note, index) => (
             <li key={index}>{note}</li>
           ))}
         </ul>
