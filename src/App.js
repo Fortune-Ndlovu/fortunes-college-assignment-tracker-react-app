@@ -16,16 +16,7 @@ import EditCollegeModule from "./components/EditCollegeModule";
 const sampleData = [
   {
     id: 1,
-    name: "Web Development Frameworks",
-    assignmentName: "",
-    assignmentDateTimeGivenOut: "",
-    assignmentDateTimeGivenDue: "",
-    assignmentGrade: "",
-    createListOfAssignmentNotes: [{ noteName: "" }]
-  },
-  {
-    id: 2,
-    name: "Server Side Programming",
+    module: "Web Development Frameworks",
     assignmentName: "",
     assignmentDateTimeGivenOut: "",
     assignmentDateTimeGivenDue: "",
@@ -76,6 +67,10 @@ function App() {
     setCollegeModules(newCollegeModules);
   };
 
+  const updateModule = (updatedModuleInformation) => {
+    setCollegeModules(updatedModuleInformation);
+  }
+
   return (
     <Router>
       <div className="container-sm p-2">
@@ -124,6 +119,7 @@ function App() {
               element={
                 <EditCollegeModule
                   modules={collegeModules}
+                  onSubmit={updateModule}
                   onEdit={editCollegeModule}
                 />
               }

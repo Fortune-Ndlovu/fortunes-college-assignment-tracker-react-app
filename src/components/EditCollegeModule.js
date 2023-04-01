@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const EditCollegeModule = ({ modules, onEdit }) => {
+const EditCollegeModule = ({ modules, onEdit, onSubmit }) => {
+  const [studentNames, setStudentNames] = useState(
+    modules[0].createListOfAssignmentNotes
+  );
+
+  console.log(studentNames);
   const urlParameters = useParams();
   const navigate = useNavigate();
 
   let moduleToEdit = modules.find(
     (item) => item.id === Number(urlParameters.moduleID)
   );
+
+  const handleStudentNameChange = (index, e) => {
+    let newStudentNames = [...studentNames];
+    newStudentNames[index][e.target.name] = e.target.value;
+    setStudentNames(newStudentNames);
+  };
+
+  const addFormFields = () => {
+    setStudentNames([...studentNames, { noteName: ""}]);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,8 +34,8 @@ const EditCollegeModule = ({ modules, onEdit }) => {
     moduleToEdit.assignmentDateTimeGivenDue =
       e.target.assignmentDateTimeGivenDue.value;
     moduleToEdit.grade = e.target.assignmentGrade.value;
-    moduleToEdit.createListOfAssignmentNotes = e.target.createListOfAssignmentNotes.value;
-
+    moduleToEdit.createListOfAssignmentNotes =
+      e.target.createListOfAssignmentNotes.value;
 
     onEdit(moduleToEdit);
     navigate(`/module/${moduleToEdit.id}`);
@@ -83,17 +98,27 @@ const EditCollegeModule = ({ modules, onEdit }) => {
       </div>
       <br />
       <div className="form-group">
-        <label htmlFor="createListOfAssignmentNotes">Create Lists of Assignment Text Note:</label>
-        <input
-          type="text"
-          className="form-control"
-          defaultValue={moduleToEdit.createListOfAssignmentNotes}
-          name="createListOfAssignmentNotes"
-        /> <button>Add a note</button>
+        {studentNames.map((element, index) => (
+          <div key={index}>
+            <label>First name:</label>
+            <input
+              type="text"
+              name="createListOfAssignmentNotes"
+              value={element.createListOfAssignmentNotes}
+              onChange={(e) => handleStudentNameChange(index, e)}
+            />
+          </div>
+        ))}
       </div>
-      <button type="submit" className="btn btn-primary">
-        Update
+      <button type="button" onClick={addFormFields}>
+        Add
       </button>
+      <button type="button" onClick={handleSubmit}>
+        Submit
+      </button>
+      {/* <button type="submit" className="btn btn-primary">
+        Update
+      </button> */}
     </form>
   );
 };
