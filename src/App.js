@@ -16,15 +16,14 @@ import EditCollegeModule from "./components/EditCollegeModule";
 const sampleData = [
   {
     id: 1,
-    module: "Web Development Frameworks",
-    assignmentName: "",
-    assignmentDateTimeGivenOut: "",
-    assignmentDateTimeGivenDue: "",
-    assignmentGrade: "",
-    createListOfAssignmentNotes: [{ noteName: "" }]
+    name: "Web Development Frameworks"
+  },
+  {
+    id: 2,
+    name: "Server Side Programming"
   }
 ];
-console.log(sampleData);
+
 function App() {
   // Make the sampleData a state variable so that when it changes the
   // relevant components are also updated.
@@ -66,10 +65,6 @@ function App() {
 
     setCollegeModules(newCollegeModules);
   };
-
-  const updateModule = (updatedModuleInformation) => {
-    setCollegeModules(updatedModuleInformation);
-  }
 
   return (
     <Router>
@@ -119,7 +114,6 @@ function App() {
               element={
                 <EditCollegeModule
                   modules={collegeModules}
-                  onSubmit={updateModule}
                   onEdit={editCollegeModule}
                 />
               }
