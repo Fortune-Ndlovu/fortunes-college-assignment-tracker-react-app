@@ -62,6 +62,7 @@ function App() {
     for (let i = 0; i < newCollegeModules.length; i++) {
       if (newCollegeModules[i].id == theEditCollegeModule.id) {
         newCollegeModules[i] = theEditCollegeModule;
+        break;
       }
     }
 
