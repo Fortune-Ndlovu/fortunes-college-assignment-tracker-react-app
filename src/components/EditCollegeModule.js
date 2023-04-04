@@ -126,6 +126,7 @@ const EditCollegeModule = ({ modules, onEdit }) => {
           className="form-control"
           defaultValue={moduleToEdit.grade}
           name="assignmentGrade"
+          onChange={handleGradeChange}
         />
       </div>
       <div>
