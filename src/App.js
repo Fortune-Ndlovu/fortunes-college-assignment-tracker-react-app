@@ -5,8 +5,7 @@ import {
   Route,
   BrowserRouter as Router,
   Routes,
-  Link,
-  useParams
+  Link
 } from "react-router-dom";
 import About from "./components/About";
 import SingleCollegeModule from "./components/SingleCollegeModule";
