@@ -8,7 +8,6 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
     // alert message and return
     if (!e.target.modulesName.value) {
       alert("Please add a name");
-      return;
     } else {
       // Create a new JS object using the value of the modulesName
       let newCollegeModule = {
