@@ -56,9 +56,12 @@ function App() {
     setCollegeModules(updatedCollegeModules);
   };
 
+  // The editCollegeModule function is used to edit a college module its taking one argument which represents the updated college module object
   const editCollegeModule = (theEditCollegeModule) => {
+    // creating a spanking new array based on the old array.
     let newCollegeModules = [...collegeModules];
 
+    // iterating over the new array and checking if the id of the new array matches the id in question if so assign the object to the new arrays object, then break out of the loop.
     for (let i = 0; i < newCollegeModules.length; i++) {
       if (newCollegeModules[i].id == theEditCollegeModule.id) {
         newCollegeModules[i] = theEditCollegeModule;
@@ -66,6 +69,7 @@ function App() {
       }
     }
 
+    // Then update the state variable to be this new array of college modules
     setCollegeModules(newCollegeModules);
   };
 

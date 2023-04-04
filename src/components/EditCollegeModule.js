@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const EditCollegeModule = ({ modules, onEdit }) => {
+
+  // State variables used to store different values for different form fields the intial values are empty strings or array
   const [name, setName] = useState("");
   const [newNote, setNewNote] = useState("");
 
@@ -13,46 +15,62 @@ const EditCollegeModule = ({ modules, onEdit }) => {
   const [grade, setGrade] = useState("");
   const [notes, setNotes] = useState([]);
 
+  // UseParams to access the URL parameters and extract the moduleID parameter.
   const urlParameters = useParams();
+
+  // Use navigate to navigate to different roots within the application.
   const navigate = useNavigate();
 
+  // We are using the find method to search the modules array for a module with an id that exactly matches the value of the moduleID URL parameter.
   const moduleToEdit = modules.find(
     (item) => item.id === Number(urlParameters.moduleID)
   );
 
-  const handleNameChange = (event) => {
-    setName(event.target.value);
+  // Several event handlers to call when different form fields are changed.
+  // These event handlers are used to update the state variables with the new values entered by the user.
+  const handleNameChange = (e) => {
+    setName(e.target.value);
   };
 
-  const handleAssignmentNameChange = (event) => {
-    setAssignmentName(event.target.value);
+  const handleAssignmentNameChange = (e) => {
+    setAssignmentName(e.target.value);
   };
 
-  const handleAssignmentDateTimeGivenOutChange = (event) => {
-    setAssignmentDateTimeGivenOut(event.target.value);
+  const handleAssignmentDateTimeGivenOutChange = (e) => {
+    setAssignmentDateTimeGivenOut(e.target.value);
   };
 
-  const handleAssignmentDateTimeGivenDueChange = (event) => {
-    setAssignmentDateTimeGivenDue(event.target.value);
+  const handleAssignmentDateTimeGivenDueChange = (e) => {
+    setAssignmentDateTimeGivenDue(e.target.value);
   };
 
-  const handleGradeChange = (event) => {
-    setGrade(event.target.value);
+  const handleGradeChange = (e) => {
+    setGrade(e.target.value);
   };
 
+  // handleAddNote function called when we want to add a note to the notes array.
+  // setNotes is used to update the notes state variable.
   const handleAddNote = () => {
     setNotes([...notes, ""]);
   };
 
-  const handleNoteChange = (event, index) => {
+  // handleNoteChange function called when the user types in a new note.
+  // The function take an event object as an argument AND an index which specifies which note the user is currently editing.
+  const handleNoteChange = (e, index) => {
     const newNotes = [...notes];
-    newNotes[index] = event.target.value;
+    newNotes[index] = e.target.value;
     setNotes(newNotes);
   };
 
+// The handleSubmit function is an event handler for the form submission.
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    /**
+     * updatedModule with properties for each form field. 
+     * The values for each form field are set to the corresponding values from the state variables if they exist, or
+     * set to the corresponding values from the moduleToEdit objectif the state variable is falsy like an empty string.
+     */
     const updatedModule = {
       id: moduleToEdit.id,
       name: name || moduleToEdit.name,
@@ -65,7 +83,10 @@ const EditCollegeModule = ({ modules, onEdit }) => {
       notes
     };
 
+    // The onEdit method is used to update the state variables with the new values entered by the user.
     onEdit(updatedModule);
+
+    // The navigate method is used to navigate to a new root that displays the updated collge module.
     navigate(`/module/${updatedModule.id}`);
   };
 
@@ -137,7 +158,7 @@ const EditCollegeModule = ({ modules, onEdit }) => {
               <input
                 type="text"
                 value={note}
-                onChange={(event) => handleNoteChange(event, index)}
+                onChange={(e) => handleNoteChange(e, index)}
               />
             </li>
           ))}
@@ -145,11 +166,6 @@ const EditCollegeModule = ({ modules, onEdit }) => {
         <button type="button" onClick={handleAddNote}>
           Add Note
         </button>
-        <input
-          type="text"
-          value={newNote}
-          onChange={(event) => setNewNote(event.target.value)}
-        />
       </div>
 
       <button type="submit" className="btn btn-primary">

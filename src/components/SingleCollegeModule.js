@@ -3,11 +3,16 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const SingleCollegeModule = ({ modules, onDelete }) => {
+
+  // Using the useParams hook to acess the URL parameters in question.
   const urlParameters = useParams();
-
-  let moduleToDisplay;
-
-  moduleToDisplay = modules.find(
+  
+  /** 
+  * In this case the moduleID parameter is extracted from the URL and assigned to the variable urlParameters
+  * We then use the find method to search the modules array for a module with the id that exactly
+  * matches the value of the moduleID URL parameter, if a match is found we assign the value to the moduleToDisplay variable
+  */
+  let moduleToDisplay = modules.find(
     (item) => item.id === Number(urlParameters.moduleID)
   );
 
@@ -15,6 +20,11 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
     onDelete(moduleToDisplay.id);
   };
 
+  /** 
+  * When this component is rendered it will display information about the a specific college module.
+  * based on the value of the moduleID URL parameter.
+  * The user can view this information and use the edit btn to modify the module or remove the college module. 
+  */
   return (
     <div>
       <div>Module Name: {moduleToDisplay.name}</div>
@@ -30,6 +40,10 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
       <div>
         Notes:
         <ul>
+          {/**
+           *  Using a conditional rendering technique to only render the moduleToDisplay.notes if it exits and is truthy
+           *  We then map over the array of notes creating a list item for each note with a unique key being the index.
+           */}
           {moduleToDisplay.notes && moduleToDisplay.notes.map((note, index) => (
             <li key={index}>{note}</li>
           ))}
