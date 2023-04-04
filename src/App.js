@@ -16,11 +16,35 @@ import EditCollegeModule from "./components/EditCollegeModule";
 const sampleData = [
   {
     id: 1,
-    name: "Web Development Frameworks"
+    name: "Web Development Frameworks",
+    assignmentName: "Student College Assignment Tracker",
+    assignmentDateTimeGivenOut: "2023-04-05T20:13",
+    assignmentDateTimeGivenDue: "2023-05-05T20:13",
+    assignmentGrade: "99.7%",
+    notes: [
+      "Create a new entry [5marks]",
+      "Update an existing entry [10marks]",
+      "Delete an existing entry. However, the user will have to first enter a code/password beforethe item gets deleted [10marks]",
+      "View a list of all entries (assignments, food logs, recipes). Each list item should not contain all entry details just the “title/header” of the entry. [2marks]",
+      "View an individual entry [3marks]",
+      "The app should be DESIGNED to be mobile-friendly. [10marks]",
+      "Additional functionality/feature that complements/supports the given application. [20marks]"
+    ]
   },
   {
     id: 2,
-    name: "Server Side Programming"
+    name: "Server Side Programming",
+    assignmentName: "Ecommerce Website",
+    assignmentDateTimeGivenOut: "2023-04-05T20:13",
+    assignmentDateTimeGivenDue: "2023-05-05T20:13",
+    assignmentGrade: "99.5%",
+    notes: [
+      "List categories",
+      "List products in these categories.",
+      "Add a product to cart.",
+      "Create an array for the cart items to be pushed into.",
+      "Remove an item from the cart."
+    ]
   }
 ];
 

@@ -5,8 +5,6 @@ const EditCollegeModule = ({ modules, onEdit }) => {
 
   // State variables used to store different values for different form fields the intial values are empty strings or array
   const [name, setName] = useState("");
-  const [newNote, setNewNote] = useState("");
-
   const [assignmentName, setAssignmentName] = useState("");
   const [assignmentDateTimeGivenOut, setAssignmentDateTimeGivenOut] =
     useState("");
