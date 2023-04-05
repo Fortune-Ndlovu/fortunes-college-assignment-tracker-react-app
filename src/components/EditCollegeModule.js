@@ -62,6 +62,13 @@ const EditCollegeModule = ({ modules, onEdit }) => {
     setNotes(newNotes);
   };
 
+  // Updating the notes state variable to remove the note at the specified index
+  const handleDeleteNote = (index) => {
+    const newNotes = [...notes];
+    newNotes.splice(index, 1);
+    setNotes(newNotes);
+  };
+
   // The handleSubmit function is an event handler for the form submission.
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -161,14 +168,14 @@ const EditCollegeModule = ({ modules, onEdit }) => {
                 value={note}
                 onChange={(e) => handleNoteChange(e, index)}
               />
+              <button type="button" className="btn btn-sm btn-danger" onClick={() => 
+                handleDeleteNote(index)
+              }>Delete Note</button>
             </li>
           ))}
         </ul>
         <button type="button" className="btn btn-sm btn-secondary" onClick={handleAddNote}>
           Add Note
-        </button>
-        <button type="button" className="btn btn-sm btn-danger" onClick={handleAddNote}>
-          Delete Note
         </button>
       </div>
       <br/>
