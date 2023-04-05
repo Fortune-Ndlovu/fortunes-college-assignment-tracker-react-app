@@ -1,15 +1,12 @@
-import React, {useState} from "react";
-import {useNavigate, useParams, Link } from "react-router-dom";
+import React from "react";
+import {useParams, Link } from "react-router-dom";
+import DeleteModule from "./DeleteModule";
 
 const SingleCollegeModule = ({ modules, onDelete }) => {
 
-  const [showForm, setShowForm] = useState(false);
-  const [code, setCode] = useState('');
-  
   // Using the useParams hook to acess the URL parameters in question.
   const urlParameters = useParams();
-    // Use navigate to navigate to different roots within the application.
-  const navigate = useNavigate();
+
   /** 
   * In this case the moduleID parameter is extracted from the URL and assigned to the variable urlParameters
   * We then use the find method to search the modules array for a module with the id that exactly
@@ -18,20 +15,6 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
   let moduleToDisplay = modules.find(
     (item) => item.id === Number(urlParameters.moduleID)
   );
-
-  const handleDelete = (e) => {
-    e.preventDefault();
-
-    if (code === 'javascript-is-king') {
-      onDelete(moduleToDisplay.id);
-      // The navigate method is used to navigate to a new root that displays all of the modules except for the deleted module. 
-      navigate(`/`);
-    } else {
-        alert('Invalid code, Please try again later');
-      navigate(`/`);
-
-    }
-  };
 
   /** 
   * When this component is rendered it will display information about the a specific college module.
@@ -67,21 +50,8 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
         <button className="btn btn-sm btn-info">Edit</button>
       </Link>
       <div>
-        <button className="btn btn-sm btn-danger" onClick={() => setShowForm(true)}>
-          del
-        </button>
-            {
-                showForm && (
-                    <form onSubmit={handleDelete}>
-                        <label>Please Enter the code to delete the module</label>
-                        <input type='text' placeholder="javascript-is-king" value={code} onChange={
-                            (e) => setCode(e.target.value)
-                        }/>
-                        <button type="submit" className="btn btn-sm btn-danger">Added Code to Delete Module</button>
-                    </form>
-                )
-            }        
-        </div>
+        <DeleteModule onDelete={onDelete} moduleToDisplay={moduleToDisplay}/>
+      </div>
     </div>
   );
 };

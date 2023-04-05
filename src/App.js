@@ -48,10 +48,10 @@ const sampleData = [
 ];
 
 function App() {
-  // Make the sampleData a state variable so that when it changes the
-  // relevant components are also updated.
+  // Make the sampleData a state variable so that when it changes the relevant components are also updated
   const [collegeModules, setCollegeModules] = useState(sampleData);
 
+  // The addCollegeModule function is used to add a new college module to the collegeModules array
   const addCollegeModule = (newCollegeModule) => {
     // Check if the newCollegeModule already has an id property
     if (!newCollegeModule.id) {
@@ -63,11 +63,8 @@ function App() {
     }
 
     // Add the newCollegeModule JS object to the collegeModules array
-    // using the spread operator
     setCollegeModules([...collegeModules, newCollegeModule]);
   };
-
-  console.log("Sample data is now: ", collegeModules);
 
   const deleteCollegeModule = (collegeModuleID) => {
     // Create a new array with the relevant college module filtered out
@@ -113,11 +110,13 @@ function App() {
                 <>
                   <div className="row justify-content-center">
                     <div className="col-4">
+                      {/* Component that renders the list of college modules */}
                       <AssignmentTracker modules={collegeModules} />
                     </div>
                   </div>
                   <div className="row justify-content-center">
                     <div className="col-4">
+                      {/* Component that renders the form that allows the user to add a new college module and handles error handling*/}
                       <NewCollegeModuleForm
                         onSubmitHandler={addCollegeModule}
                       />
@@ -129,6 +128,7 @@ function App() {
 
             <Route path="/about" element={<About />} />
 
+            {/* Any path that starts with "/module/" render the SingleCollegeModule component*/}
             <Route
               path="/module/:moduleID"
               element={
@@ -139,6 +139,7 @@ function App() {
               }
             />
 
+            {/* Any path that starts with "/edit/" render the EditCollegeModule component*/}
             <Route
               path="/edit/:moduleID"
               element={
