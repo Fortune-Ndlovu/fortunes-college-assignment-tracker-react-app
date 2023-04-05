@@ -19,7 +19,9 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
     (item) => item.id === Number(urlParameters.moduleID)
   );
 
-  const handleDelete = () => {
+  const handleDelete = (e) => {
+    e.preventDefault();
+
     if (code === 'javascript-is-king') {
       onDelete(moduleToDisplay.id);
       // The navigate method is used to navigate to a new root that displays all of the modules except for the deleted module. 
@@ -65,9 +67,9 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
         <button className="btn btn-sm btn-info">Edit</button>
       </Link>
       <div>
-      <button className="btn btn-sm btn-danger" onClick={() => setShowForm(true)}>
-        del
-      </button>
+        <button className="btn btn-sm btn-danger" onClick={() => setShowForm(true)}>
+          del
+        </button>
             {
                 showForm && (
                     <form onSubmit={handleDelete}>
