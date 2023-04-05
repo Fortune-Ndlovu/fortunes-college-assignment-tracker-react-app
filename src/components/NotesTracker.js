@@ -2,6 +2,9 @@ import React from "react";
 
 // Created a separate Notes component for the notes functionality
 const NotesTracker = ({ notes, onAddNote, onNoteChange, onDeleteNote }) => {
+    
+    // When the Add Note button is clicked this function is called
+    // it prevents the default form submission and calls the onAddNote function that is passed as a prop
     let handleAddNote = (e) => {
         e.preventDefault();
         onAddNote();
