@@ -11,7 +11,11 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
     } else {
       // Create a new JS object using the value of the modulesName
       let newCollegeModule = {
-        name: e.target.modulesName.value
+        name: e.target.modulesName.value,
+        assignmentName: e.target.assignmentName,
+        assignmentDateTimeGivenOut: e.target.assignmentDateTimeGivenOut,
+        assignmentDateTimeGivenDue: e.target.assignmentDateTimeGivenDue,
+        grade: e.target.grade
       };
 
       // "Blank out" the modulesName

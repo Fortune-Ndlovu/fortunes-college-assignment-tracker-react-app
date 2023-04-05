@@ -1,11 +1,12 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import {useNavigate, useParams, Link } from "react-router-dom";
 
 const SingleCollegeModule = ({ modules, onDelete }) => {
 
   // Using the useParams hook to acess the URL parameters in question.
   const urlParameters = useParams();
-  
+    // Use navigate to navigate to different roots within the application.
+    const navigate = useNavigate();
   /** 
   * In this case the moduleID parameter is extracted from the URL and assigned to the variable urlParameters
   * We then use the find method to search the modules array for a module with the id that exactly
@@ -17,6 +18,9 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
 
   const handleDelete = () => {
     onDelete(moduleToDisplay.id);
+
+    // The navigate method is used to navigate to a new root that displays all of the modules except for the deleted module. 
+    navigate(`/`);
   };
 
   /** 
