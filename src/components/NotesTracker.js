@@ -1,10 +1,11 @@
 import React from "react";
 
-// Create a separate Notes component for the notes functionality
+// Created a separate Notes component for the notes functionality
 const NotesTracker = ({ notes, onAddNote, onNoteChange, onDeleteNote }) => {
   return (
     <div>
       <h4>Notes</h4>
+      {/* for every note in notes we want to be able to modify within, delete it and add a new note to do the same*/}
       {notes.map((note, index) => (
         <div key={index}>
           <textarea
