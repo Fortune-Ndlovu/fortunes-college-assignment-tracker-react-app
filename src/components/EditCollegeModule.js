@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useParams, useLocation  } from "react-router-dom";
+import NotesTracker from "./NotesTracker";
 
 const EditCollegeModule = ({ modules, onEdit }) => {
 
@@ -158,26 +159,7 @@ const EditCollegeModule = ({ modules, onEdit }) => {
           onChange={handleGradeChange}
         />
       </div>
-      <div>
-        <label>Notes:</label>
-        <ul>
-          {notes.map((note, index) => (
-            <li key={index}>
-              <input
-                type="text"
-                value={note}
-                onChange={(e) => handleNoteChange(e, index)}
-              />
-              <button type="button" className="btn btn-sm btn-danger" onClick={() => 
-                handleDeleteNote(index)
-              }>Delete Note</button>
-            </li>
-          ))}
-        </ul>
-        <button type="button" className="btn btn-sm btn-secondary" onClick={handleAddNote}>
-          Add Note
-        </button>
-      </div>
+      <NotesTracker notes={notes} onAddNote={handleAddNote} onNoteChange={handleNoteChange} onDeleteNote={handleDeleteNote}/>
       <br/>
       <button type="submit" className="btn btn-primary">
         Update
