@@ -22,7 +22,7 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
     // The navigate method is used to navigate to a new root that displays all of the modules except for the deleted module. 
     navigate(`/`);
   };
-
+console.log (" Our Notes:",  moduleToDisplay.notes );
   /** 
   * When this component is rendered it will display information about the a specific college module.
   * based on the value of the moduleID URL parameter.
@@ -52,7 +52,10 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
           ))}
         </ul>
       </div>
-      <Link to={`/edit/${moduleToDisplay.id}`}>Edit</Link>
+      {/*  passing the value of the notes property of the moduleToDisplay object as a prop when you navigate to the /module/${updatedModule.id} */}
+      <Link to={`/edit/${moduleToDisplay.id}`} state={{ notes: moduleToDisplay.notes }}>
+        <button className="btn btn-sm btn-info">Edit</button>
+      </Link>
       <button className="btn btn-sm btn-danger" onClick={handleDelete}>
         del
       </button>

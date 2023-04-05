@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useLocation  } from "react-router-dom";
 
 const EditCollegeModule = ({ modules, onEdit }) => {
 
@@ -11,8 +11,10 @@ const EditCollegeModule = ({ modules, onEdit }) => {
   const [assignmentDateTimeGivenDue, setAssignmentDateTimeGivenDue] =
     useState("");
   const [grade, setGrade] = useState("");
-  const [notes, setNotes] = useState([]);
-
+  const location = useLocation();
+  // Assigning the current location or empty array as the initial value
+  const [notes, setNotes] = useState(location.state.notes || []);
+  console.log (" Our Edit Notes:", notes );
   // UseParams to access the URL parameters and extract the moduleID parameter.
   const urlParameters = useParams();
 
@@ -60,7 +62,7 @@ const EditCollegeModule = ({ modules, onEdit }) => {
     setNotes(newNotes);
   };
 
-// The handleSubmit function is an event handler for the form submission.
+  // The handleSubmit function is an event handler for the form submission.
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -78,14 +80,15 @@ const EditCollegeModule = ({ modules, onEdit }) => {
       assignmentDateTimeGivenDue:
         assignmentDateTimeGivenDue || moduleToEdit.assignmentDateTimeGivenDue,
       grade: grade || moduleToEdit.grade,
-      notes
+      notes: notes || moduleToEdit.notes
     };
+    
 
     // The onEdit method is used to update the state variables with the new values entered by the user.
     onEdit(updatedModule);
 
-    // The navigate method is used to navigate to a new root that displays the updated collge module.
-    navigate(`/module/${updatedModule.id}`);
+    // The navigate method is used to navigate to a new root that displays the updated collge module and its current state as a prop.
+    navigate(`/module/${updatedModule.id}`, { state: { notes: updatedModule.notes } });
   };
 
   return (
@@ -161,11 +164,14 @@ const EditCollegeModule = ({ modules, onEdit }) => {
             </li>
           ))}
         </ul>
-        <button type="button" onClick={handleAddNote}>
+        <button type="button" className="btn btn-sm btn-secondary" onClick={handleAddNote}>
           Add Note
         </button>
+        <button type="button" className="btn btn-sm btn-danger" onClick={handleAddNote}>
+          Delete Note
+        </button>
       </div>
-
+      <br/>
       <button type="submit" className="btn btn-primary">
         Update
       </button>
