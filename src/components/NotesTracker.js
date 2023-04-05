@@ -3,11 +3,16 @@ import React from "react";
 // Created a separate Notes component for the notes functionality
 const NotesTracker = ({ notes, onAddNote, onNoteChange, onDeleteNote }) => {
     
-    // When the Add Note button is clicked this function is called
+    // When the Add Note or Delete btns is clicked this function is called
     // it prevents the default form submission and calls the onAddNote function that is passed as a prop
     let handleAddNote = (e) => {
         e.preventDefault();
         onAddNote();
+    }
+    
+    let handleNoteDelete = (e) => {
+        e.preventDefault();
+        onDeleteNote();
     }
 
     return (
@@ -20,7 +25,7 @@ const NotesTracker = ({ notes, onAddNote, onNoteChange, onDeleteNote }) => {
             value={note}
             onChange={(e) => onNoteChange(e, index)}
           ></textarea>
-          <button onClick={() => onDeleteNote(index)}>Delete</button>
+          <button onClick={handleNoteDelete}>Delete</button>
         </div>
       ))}
       <button onClick={handleAddNote}>Add Note</button>
