@@ -1,19 +1,14 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 const NewCollegeModuleForm = ({ onSubmitHandler }) => {
-  // UseParams to access the URL parameters and extract the moduleID parameter.
-  // const urlParameters = useParams();
 
   // Use navigate to navigate to different roots within the application.
   const navigate = useNavigate();
 
-  // let moduleToAdd = modules.find(
-  //   (item) => item === Number(urlParameters.addID)
-  // );
   const handleFormCancel = (e) => {
     e.preventDefault();
-    navigate(`/`);
+    navigate("/");
   };
 
   const handleSubmit = (e) => {
@@ -36,9 +31,9 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
       // "Blank out" the modulesName
       e.target.modulesName.value = "";
 
-      // Call the onSubmitHandler function that was passed in via a prop
+      // Call the onSubmitHandler function that was passed in via prop
       onSubmitHandler(newCollegeModule);
-      navigate(`/`);
+      navigate("/");
     }
   };
 

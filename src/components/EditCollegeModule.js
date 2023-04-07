@@ -15,7 +15,6 @@ const EditCollegeModule = ({ modules, onEdit }) => {
   const location = useLocation();
   // Assigning the current location or empty array as the initial value
   const [notes, setNotes] = useState(location.state.notes || []);
-  console.log (" Our Edit Notes:", notes );
   // UseParams to access the URL parameters and extract the moduleID parameter.
   const urlParameters = useParams();
 

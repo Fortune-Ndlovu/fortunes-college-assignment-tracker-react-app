@@ -17,10 +17,10 @@ const DeleteModule = ({ onDelete, moduleToDisplay }) => {
 
     if (code === "javascript-is-cool") {
       onDelete(moduleToDisplay.id);
-      navigate(`/`);
+      navigate("/");
     } else {
       alert("Invalid code, Please try again later");
-      navigate(`/`);
+      navigate("/");
     }
   };
 

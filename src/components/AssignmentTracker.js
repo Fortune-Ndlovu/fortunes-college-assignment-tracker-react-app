@@ -12,8 +12,8 @@ const AssignmentTracker = ({ modules }) => {
           <Link to={`/module/${item.id}`}>{item.name}</Link>&nbsp;
         </li>
       ))}
-      <Link to={`/add/`}>
-        <button className="btn btn-success">Add Module</button>
+      <Link to={"/add/"}>
+        <button className="btn btn-success">Add Assignment</button>
       </Link>
     </ul>
   );
