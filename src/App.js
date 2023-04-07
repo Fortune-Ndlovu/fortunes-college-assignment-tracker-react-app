@@ -5,6 +5,7 @@ import { Route, BrowserRouter as Router, Routes, Link } from "react-router-dom";
 import About from "./components/About";
 import SingleCollegeModule from "./components/SingleCollegeModule";
 import EditCollegeModule from "./components/EditCollegeModule";
+import Header from "./components/Header";
 
 // Sample data for testing purposes
 const sampleData = [
@@ -78,7 +79,7 @@ function App() {
 
     // iterating over the new array and checking if the id of the new array matches the id in question if so assign the object to the new arrays object, then break out of the loop.
     for (let i = 0; i < newCollegeModules.length; i++) {
-      if (newCollegeModules[i].id == theEditCollegeModule.id) {
+      if (newCollegeModules[i].id === theEditCollegeModule.id) {
         newCollegeModules[i] = theEditCollegeModule;
         break;
       }
@@ -91,12 +92,7 @@ function App() {
   return (
     <Router>
       <div className="container-sm p-2">
-        <header className="p-3 text-center bg-dark text-light rounded-3">
-          <Link to="/">
-            <h2>Student Assignment Tracker📗</h2>
-          </Link>
-          <Link to="/about">About</Link>
-        </header>
+        <Header />
         <div className="container">
           <Routes>
             <Route
