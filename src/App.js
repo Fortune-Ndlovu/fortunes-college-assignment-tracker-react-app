@@ -6,6 +6,7 @@ import About from "./components/About";
 import SingleCollegeModule from "./components/SingleCollegeModule";
 import EditCollegeModule from "./components/EditCollegeModule";
 import Header from "./components/Header";
+import Footer from "./components/Footer.js";
 
 // Sample data for testing purposes
 const sampleData = [
@@ -144,6 +145,7 @@ function App() {
           </Routes>
         </div>
       </div>
+      <Footer />
     </Router>
   );
 }
