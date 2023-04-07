@@ -11,6 +11,10 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
   // let moduleToAdd = modules.find(
   //   (item) => item === Number(urlParameters.addID)
   // );
+  const handleFormCancel = (e) => {
+    e.preventDefault();
+    navigate(`/`);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,6 +57,13 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
         />
       </div>
       <input type="submit" className="btn btn-primary" value="Add" />
+      <button
+        type="button"
+        className="btn btn-sm btn-warning"
+        onClick={handleFormCancel}
+      >
+        Cancel
+      </button>
     </form>
   );
 };
