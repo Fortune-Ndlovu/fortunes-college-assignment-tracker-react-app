@@ -1,12 +1,7 @@
 import AssignmentTracker from "./components/AssignmentTracker.js";
 import NewCollegeModuleForm from "./components/NewCollegeModuleForm";
 import { useState } from "react";
-import {
-  Route,
-  BrowserRouter as Router,
-  Routes,
-  Link
-} from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes, Link } from "react-router-dom";
 import About from "./components/About";
 import SingleCollegeModule from "./components/SingleCollegeModule";
 import EditCollegeModule from "./components/EditCollegeModule";
@@ -114,15 +109,16 @@ function App() {
                       <AssignmentTracker modules={collegeModules} />
                     </div>
                   </div>
-                  <div className="row justify-content-center">
-                    <div className="col-4">
-                      {/* Component that renders the form that allows the user to add a new college module and handles error handling*/}
-                      <NewCollegeModuleForm
-                        onSubmitHandler={addCollegeModule}
-                      />
-                    </div>
-                  </div>
                 </>
+              }
+            />
+
+            {/* Any path that starts with "/add/" render the SingleCollegeModule component*/}
+            <Route
+              path="/add/"
+              element={
+                // {/* Component that renders the form that allows the user to add a new college module and handles error handling*/}
+                <NewCollegeModuleForm onSubmitHandler={addCollegeModule} />
               }
             />
 

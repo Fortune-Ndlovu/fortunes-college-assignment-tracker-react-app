@@ -1,6 +1,17 @@
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const NewCollegeModuleForm = ({ onSubmitHandler }) => {
+  // UseParams to access the URL parameters and extract the moduleID parameter.
+  // const urlParameters = useParams();
+
+  // Use navigate to navigate to different roots within the application.
+  const navigate = useNavigate();
+
+  // let moduleToAdd = modules.find(
+  //   (item) => item === Number(urlParameters.addID)
+  // );
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -23,6 +34,7 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
 
       // Call the onSubmitHandler function that was passed in via a prop
       onSubmitHandler(newCollegeModule);
+      navigate(`/`);
     }
   };
 
