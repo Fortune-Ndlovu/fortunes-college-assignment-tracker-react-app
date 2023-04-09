@@ -92,60 +92,62 @@ function App() {
 
   return (
     <Router>
-      <div className="container-sm p-2">
+      <div className="container-sm p-2" id="test">
         <Header />
         <div className="container">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <div className="row justify-content-center">
-                    <div className="col-4">
-                      {/* Component that renders the list of college modules */}
-                      <AssignmentTracker modules={collegeModules} />
+          <main>
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <div className="row justify-content-center">
+                      <div className="col-4">
+                        {/* Component that renders the list of college modules */}
+                        <AssignmentTracker modules={collegeModules} />
+                      </div>
                     </div>
-                  </div>
-                </>
-              }
-            />
+                  </>
+                }
+              />
 
-            {/* Any path that starts with "/add/" render the SingleCollegeModule component*/}
-            <Route
-              path="/add/"
-              element={
-                // {/* Component that renders the form that allows the user to add a new college module and handles error handling*/}
-                <NewCollegeModuleForm onSubmitHandler={addCollegeModule} />
-              }
-            />
+              {/* Any path that starts with "/add/" render the SingleCollegeModule component*/}
+              <Route
+                path="/add/"
+                element={
+                  // {/* Component that renders the form that allows the user to add a new college module and handles error handling*/}
+                  <NewCollegeModuleForm onSubmitHandler={addCollegeModule} />
+                }
+              />
 
-            <Route path="/about" element={<About />} />
+              <Route path="/about" element={<About />} />
 
-            {/* Any path that starts with "/module/" render the SingleCollegeModule component*/}
-            <Route
-              path="/module/:moduleID"
-              element={
-                <SingleCollegeModule
-                  modules={collegeModules}
-                  onDelete={deleteCollegeModule}
-                />
-              }
-            />
+              {/* Any path that starts with "/module/" render the SingleCollegeModule component*/}
+              <Route
+                path="/module/:moduleID"
+                element={
+                  <SingleCollegeModule
+                    modules={collegeModules}
+                    onDelete={deleteCollegeModule}
+                  />
+                }
+              />
 
-            {/* Any path that starts with "/edit/" render the EditCollegeModule component*/}
-            <Route
-              path="/edit/:moduleID"
-              element={
-                <EditCollegeModule
-                  modules={collegeModules}
-                  onEdit={editCollegeModule}
-                />
-              }
-            />
-          </Routes>
+              {/* Any path that starts with "/edit/" render the EditCollegeModule component*/}
+              <Route
+                path="/edit/:moduleID"
+                element={
+                  <EditCollegeModule
+                    modules={collegeModules}
+                    onEdit={editCollegeModule}
+                  />
+                }
+              />
+            </Routes>
+          </main>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </Router>
   );
 }
