@@ -1,7 +1,5 @@
 import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 
 const NewCollegeModuleForm = ({ onSubmitHandler }) => {
   // Use navigate to navigate to different roots within the application.

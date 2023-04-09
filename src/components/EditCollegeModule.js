@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate, useParams, useLocation  } from "react-router-dom";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
 import NotesTracker from "./NotesTracker";
 
 const EditCollegeModule = ({ modules, onEdit }) => {
-
   // State variables used to store different values for different form fields the intial values are empty strings or array
   const [name, setName] = useState("");
   const [assignmentName, setAssignmentName] = useState("");
+  const [image, setAssignmentImage] = useState("");
   const [assignmentDateTimeGivenOut, setAssignmentDateTimeGivenOut] =
     useState("");
   const [assignmentDateTimeGivenDue, setAssignmentDateTimeGivenDue] =
@@ -30,6 +30,14 @@ const EditCollegeModule = ({ modules, onEdit }) => {
   // These event handlers are used to update the state variables with the new values entered by the user.
   const handleNameChange = (e) => {
     setName(e.target.value);
+  };
+
+  const handleImageChange = (e) => {
+    // Get the selected file from the event object
+    const file = e.target.files[0];
+
+    // Update the state with the selected file
+    setAssignmentImage(file);
   };
 
   const handleAssignmentNameChange = (e) => {
@@ -73,14 +81,19 @@ const EditCollegeModule = ({ modules, onEdit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    // Create a FormData object to send the image file
+    const formData = new FormData();
+    formData.append("image", image);
+
     /**
-     * updatedModule with properties for each form field. 
+     * updatedModule with properties for each form field.
      * The values for each form field are set to the corresponding values from the state variables if they exist, or
      * set to the corresponding values from the moduleToEdit objectif the state variable is falsy like an empty string.
      */
     const updatedModule = {
       id: moduleToEdit.id,
       name: name || moduleToEdit.name,
+      image: formData || moduleToEdit.image,
       assignmentName: assignmentName || moduleToEdit.assignmentName,
       assignmentDateTimeGivenOut:
         assignmentDateTimeGivenOut || moduleToEdit.assignmentDateTimeGivenOut,
@@ -89,13 +102,14 @@ const EditCollegeModule = ({ modules, onEdit }) => {
       grade: grade || moduleToEdit.grade,
       notes: notes || moduleToEdit.notes
     };
-    
 
     // The onEdit method is used to update the state variables with the new values entered by the user.
     onEdit(updatedModule);
 
     // The navigate method is used to navigate to a new root that displays the updated collge module and its current state as a prop.
-    navigate(`/module/${updatedModule.id}`, { state: { notes: updatedModule.notes } });
+    navigate(`/module/${updatedModule.id}`, {
+      state: { notes: updatedModule.notes }
+    });
   };
 
   return (
@@ -108,6 +122,21 @@ const EditCollegeModule = ({ modules, onEdit }) => {
           defaultValue={moduleToEdit.name}
           name="moduleName"
           onChange={handleNameChange}
+        />
+      </div>
+      <br />
+      <div className="mb-3">
+        <label htmlFor="image" className="form-label">
+          Image:{" "}
+        </label>
+        <input
+          type="file"
+          className="form-control"
+          value="" // Set the value to an empty string
+          id="image"
+          name="image"
+          accept="image/*"
+          onChange={handleImageChange}
         />
       </div>
       <br />
@@ -158,8 +187,13 @@ const EditCollegeModule = ({ modules, onEdit }) => {
           onChange={handleGradeChange}
         />
       </div>
-      <NotesTracker notes={notes} onAddNote={handleAddNote} onNoteChange={handleNoteChange} onDeleteNote={handleDeleteNote}/>
-      <br/>
+      <NotesTracker
+        notes={notes}
+        onAddNote={handleAddNote}
+        onNoteChange={handleNoteChange}
+        onDeleteNote={handleDeleteNote}
+      />
+      <br />
       <button type="submit" className="btn btn-primary">
         Update
       </button>
