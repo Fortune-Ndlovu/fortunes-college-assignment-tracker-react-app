@@ -7,6 +7,7 @@ import SingleCollegeModule from "./components/SingleCollegeModule";
 import EditCollegeModule from "./components/EditCollegeModule";
 import Header from "./components/Header";
 import Footer from "./components/Footer.js";
+import studyImage from "./images/study.jpg";
 
 // Sample data for testing purposes
 const sampleData = [
@@ -17,6 +18,7 @@ const sampleData = [
     assignmentDateTimeGivenOut: "2023-04-05T20:13",
     assignmentDateTimeGivenDue: "2023-05-05T20:13",
     assignmentGrade: "99.7%",
+    image: studyImage,
     notes: [
       "Create a new entry [5marks]",
       "Update an existing entry [10marks]",
@@ -34,6 +36,7 @@ const sampleData = [
     assignmentDateTimeGivenOut: "2023-04-05T20:13",
     assignmentDateTimeGivenDue: "2023-05-05T20:13",
     assignmentGrade: "99.5%",
+    image: studyImage,
     notes: [
       "List categories",
       "List products in these categories.",
@@ -92,61 +95,60 @@ function App() {
 
   return (
     <Router>
-      <div className="container-sm p-2" id="test">
+      <div className="container-sm p-2">
         <Header />
-        <div className="container">
-          <main>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <>
-                    <div className="row justify-content-center">
-                      <div className="col-4">
-                        {/* Component that renders the list of college modules */}
-                        <AssignmentTracker modules={collegeModules} />
-                      </div>
-                    </div>
-                  </>
-                }
-              />
+        <main>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div className="row justify-content-center">
+                  <div className="col-4">
+                    {/* Component that renders the list of college modules */}
+                    <AssignmentTracker
+                      modules={collegeModules}
+                      studyImage={studyImage}
+                    />
+                  </div>
+                </div>
+              }
+            />
 
-              {/* Any path that starts with "/add/" render the SingleCollegeModule component*/}
-              <Route
-                path="/add/"
-                element={
-                  // {/* Component that renders the form that allows the user to add a new college module and handles error handling*/}
-                  <NewCollegeModuleForm onSubmitHandler={addCollegeModule} />
-                }
-              />
+            {/* Any path that starts with "/add/" render the SingleCollegeModule component*/}
+            <Route
+              path="/add/"
+              element={
+                // {/* Component that renders the form that allows the user to add a new college module and handles error handling*/}
+                <NewCollegeModuleForm onSubmitHandler={addCollegeModule} />
+              }
+            />
 
-              <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About />} />
 
-              {/* Any path that starts with "/module/" render the SingleCollegeModule component*/}
-              <Route
-                path="/module/:moduleID"
-                element={
-                  <SingleCollegeModule
-                    modules={collegeModules}
-                    onDelete={deleteCollegeModule}
-                  />
-                }
-              />
+            {/* Any path that starts with "/module/" render the SingleCollegeModule component*/}
+            <Route
+              path="/module/:moduleID"
+              element={
+                <SingleCollegeModule
+                  modules={collegeModules}
+                  onDelete={deleteCollegeModule}
+                />
+              }
+            />
 
-              {/* Any path that starts with "/edit/" render the EditCollegeModule component*/}
-              <Route
-                path="/edit/:moduleID"
-                element={
-                  <EditCollegeModule
-                    modules={collegeModules}
-                    onEdit={editCollegeModule}
-                  />
-                }
-              />
-            </Routes>
-          </main>
-        </div>
-        <Footer />
+            {/* Any path that starts with "/edit/" render the EditCollegeModule component*/}
+            <Route
+              path="/edit/:moduleID"
+              element={
+                <EditCollegeModule
+                  modules={collegeModules}
+                  onEdit={editCollegeModule}
+                />
+              }
+            />
+          </Routes>
+        </main>
+        {/* <Footer /> */}
       </div>
     </Router>
   );
