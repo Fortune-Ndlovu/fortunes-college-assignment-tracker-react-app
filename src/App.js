@@ -7,7 +7,6 @@ import SingleCollegeModule from "./components/SingleCollegeModule";
 import EditCollegeModule from "./components/EditCollegeModule";
 import Header from "./components/Header";
 import Footer from "./components/Footer.js";
-import studyImage from "./images/study.jpg";
 
 // Sample data for testing purposes
 const sampleData = [
@@ -18,7 +17,6 @@ const sampleData = [
     assignmentDateTimeGivenOut: "2023-04-05T20:13",
     assignmentDateTimeGivenDue: "2023-05-05T20:13",
     assignmentGrade: "99.7%",
-    image: studyImage,
     notes: [
       "Create a new entry [5marks]",
       "Update an existing entry [10marks]",
@@ -36,7 +34,6 @@ const sampleData = [
     assignmentDateTimeGivenOut: "2023-04-05T20:13",
     assignmentDateTimeGivenDue: "2023-05-05T20:13",
     assignmentGrade: "99.5%",
-    image: studyImage,
     notes: [
       "List categories",
       "List products in these categories.",
@@ -97,20 +94,19 @@ function App() {
     <Router>
       <div className="container-sm p-2">
         <Header />
-        <main>
+        <div className="container">
           <Routes>
             <Route
               path="/"
               element={
-                <div className="row justify-content-center">
-                  <div className="col-4">
-                    {/* Component that renders the list of college modules */}
-                    <AssignmentTracker
-                      modules={collegeModules}
-                      studyImage={studyImage}
-                    />
+                <>
+                  <div className="row justify-content-center">
+                    <div className="col-4">
+                      {/* Component that renders the list of college modules */}
+                      <AssignmentTracker modules={collegeModules} />
+                    </div>
                   </div>
-                </div>
+                </>
               }
             />
 
@@ -147,9 +143,9 @@ function App() {
               }
             />
           </Routes>
-        </main>
-        {/* <Footer /> */}
+        </div>
       </div>
+      <Footer />
     </Router>
   );
 }

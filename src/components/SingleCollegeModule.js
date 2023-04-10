@@ -22,9 +22,6 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
    */
   return (
     <div>
-      <div>
-        <img src={moduleToDisplay.image} alt="module image" width="150px" height="150px"/>
-      </div>
       <div>Module Name: {moduleToDisplay.name}</div>
       <div>Assignment Name: {moduleToDisplay.assignmentName}</div>
       <div>

@@ -5,9 +5,7 @@ import NotesTracker from "./NotesTracker";
 const EditCollegeModule = ({ modules, onEdit }) => {
   // State variables used to store different values for different form fields the intial values are empty strings or array
   const [name, setName] = useState("");
-  const [selectedImage, setSelectedImage] = useState(null);
   const [assignmentName, setAssignmentName] = useState("");
-  const [image, setAssignmentImage] = useState("");
   const [assignmentDateTimeGivenOut, setAssignmentDateTimeGivenOut] =
     useState("");
   const [assignmentDateTimeGivenDue, setAssignmentDateTimeGivenDue] =
@@ -31,18 +29,6 @@ const EditCollegeModule = ({ modules, onEdit }) => {
   // These event handlers are used to update the state variables with the new values entered by the user.
   const handleNameChange = (e) => {
     setName(e.target.value);
-  };
-
-  // const handleImageChange = (e) => {
-  //   // Get the selected file from the event object
-  //   const file = e.target.files[0];
-
-  //   // Update the state with the selected file
-  //   setAssignmentImage(file);
-  // };
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    setSelectedImage(file);
   };
 
   const handleAssignmentNameChange = (e) => {
@@ -86,15 +72,6 @@ const EditCollegeModule = ({ modules, onEdit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Create a FormData object to send the image file
-    const formData = new FormData();
-    formData.append("image", selectedImage);
-
-    // Perform the actual upload using fetch or any other library
-
-    // Reset the selectedImage state to null after successful upload
-    setSelectedImage(null);
-
     /**
      * updatedModule with properties for each form field.
      * The values for each form field are set to the corresponding values from the state variables if they exist, or
@@ -103,7 +80,6 @@ const EditCollegeModule = ({ modules, onEdit }) => {
     const updatedModule = {
       id: moduleToEdit.id,
       name: name || moduleToEdit.name,
-      image: selectedImage ? formData : moduleToEdit.image,
       assignmentName: assignmentName || moduleToEdit.assignmentName,
       assignmentDateTimeGivenOut:
         assignmentDateTimeGivenOut || moduleToEdit.assignmentDateTimeGivenOut,
@@ -133,26 +109,6 @@ const EditCollegeModule = ({ modules, onEdit }) => {
           name="moduleName"
           onChange={handleNameChange}
         />
-      </div>
-      <br />
-      <div className="mb-3">
-        <label htmlFor="image" className="form-label">
-          Image:{" "}
-        </label>
-        {/* <input
-          type="file"
-          className="form-control"
-          value="" // Set the value to an empty string
-          id="image"
-          name="image"
-          accept="image/*"
-          onChange={handleImageChange}
-        /> */}
-        {/* Add the input element for choosing a new image */}
-        <input type="file" onChange={handleImageChange} />
-        {/* Render the current image */}
-        <img src={selectedImage} alt="College Image" />
-        {/* Add other form fields and submit button */}
       </div>
       <br />
       <div className="form-group">
