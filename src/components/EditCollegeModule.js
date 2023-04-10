@@ -5,6 +5,7 @@ import NotesTracker from "./NotesTracker";
 const EditCollegeModule = ({ modules, onEdit }) => {
   // State variables used to store different values for different form fields the intial values are empty strings or array
   const [name, setName] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
   const [assignmentName, setAssignmentName] = useState("");
   const [image, setAssignmentImage] = useState("");
   const [assignmentDateTimeGivenOut, setAssignmentDateTimeGivenOut] =
@@ -32,12 +33,16 @@ const EditCollegeModule = ({ modules, onEdit }) => {
     setName(e.target.value);
   };
 
-  const handleImageChange = (e) => {
-    // Get the selected file from the event object
-    const file = e.target.files[0];
+  // const handleImageChange = (e) => {
+  //   // Get the selected file from the event object
+  //   const file = e.target.files[0];
 
-    // Update the state with the selected file
-    setAssignmentImage(file);
+  //   // Update the state with the selected file
+  //   setAssignmentImage(file);
+  // };
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+    setSelectedImage(file);
   };
 
   const handleAssignmentNameChange = (e) => {
@@ -83,7 +88,12 @@ const EditCollegeModule = ({ modules, onEdit }) => {
 
     // Create a FormData object to send the image file
     const formData = new FormData();
-    formData.append("image", image);
+    formData.append("image", selectedImage);
+
+    // Perform the actual upload using fetch or any other library
+
+    // Reset the selectedImage state to null after successful upload
+    setSelectedImage(null);
 
     /**
      * updatedModule with properties for each form field.
@@ -93,7 +103,7 @@ const EditCollegeModule = ({ modules, onEdit }) => {
     const updatedModule = {
       id: moduleToEdit.id,
       name: name || moduleToEdit.name,
-      image: formData || moduleToEdit.image,
+      image: selectedImage ? formData : moduleToEdit.image,
       assignmentName: assignmentName || moduleToEdit.assignmentName,
       assignmentDateTimeGivenOut:
         assignmentDateTimeGivenOut || moduleToEdit.assignmentDateTimeGivenOut,
@@ -129,7 +139,7 @@ const EditCollegeModule = ({ modules, onEdit }) => {
         <label htmlFor="image" className="form-label">
           Image:{" "}
         </label>
-        <input
+        {/* <input
           type="file"
           className="form-control"
           value="" // Set the value to an empty string
@@ -137,7 +147,12 @@ const EditCollegeModule = ({ modules, onEdit }) => {
           name="image"
           accept="image/*"
           onChange={handleImageChange}
-        />
+        /> */}
+        {/* Add the input element for choosing a new image */}
+        <input type="file" onChange={handleImageChange} />
+        {/* Render the current image */}
+        <img src={selectedImage} alt="College Image" />
+        {/* Add other form fields and submit button */}
       </div>
       <br />
       <div className="form-group">
