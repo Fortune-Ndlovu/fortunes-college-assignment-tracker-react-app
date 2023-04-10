@@ -23,6 +23,9 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
   return (
     <div>
       <div>Module Name: {moduleToDisplay.name}</div>
+      <div>
+        <img src={moduleToDisplay.image} width="250" height="250" />
+      </div>
       <div>Assignment Name: {moduleToDisplay.assignmentName}</div>
       <div>
         Assignment Date Given Out: {moduleToDisplay.assignmentDateTimeGivenOut}

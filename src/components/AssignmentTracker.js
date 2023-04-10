@@ -1,21 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
-// dustructuring the prop called modules in the function signature
-// Using the map method to iterate over the modules array, and create a list item for each module
-// Each list item contains a Link component that navigates to the a unique URL based on the modules id property
 const AssignmentTracker = ({ modules }) => {
   return (
-    <ul id="Module-List">
+    <>
       {modules.map((item) => (
-        <li key={item.id}>
-          <Link to={`/module/${item.id}`}>{item.name}</Link>&nbsp;
-        </li>
+        <Card key={item.id} style={{ width: "18rem" }}>
+          <Card.Img variant="top" src={item.image} alt="study image" />
+          <Card.Body>
+            <Card.Title>{item.name}</Card.Title>
+            <Link to={`/module/${item.id}`}>Let's Go in!</Link>
+          </Card.Body>
+        </Card>
       ))}
       <Link to={"/add/"}>
-        <button className="btn btn-success">Add Assignment</button>
+        <Button variant="success">Add Assignment</Button>
       </Link>
-    </ul>
+    </>
   );
 };
 

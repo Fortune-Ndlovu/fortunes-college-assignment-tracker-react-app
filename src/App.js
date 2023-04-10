@@ -1,12 +1,13 @@
 import AssignmentTracker from "./components/AssignmentTracker.js";
 import NewCollegeModuleForm from "./components/NewCollegeModuleForm";
 import { useState } from "react";
-import { Route, BrowserRouter as Router, Routes, Link } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import About from "./components/About";
 import SingleCollegeModule from "./components/SingleCollegeModule";
 import EditCollegeModule from "./components/EditCollegeModule";
 import Header from "./components/Header";
 import Footer from "./components/Footer.js";
+import studyImage from "./images/study.jpg";
 
 // Sample data for testing purposes
 const sampleData = [
@@ -17,6 +18,7 @@ const sampleData = [
     assignmentDateTimeGivenOut: "2023-04-05T20:13",
     assignmentDateTimeGivenDue: "2023-05-05T20:13",
     assignmentGrade: "99.7%",
+    image: studyImage,
     notes: [
       "Create a new entry [5marks]",
       "Update an existing entry [10marks]",
@@ -34,6 +36,7 @@ const sampleData = [
     assignmentDateTimeGivenOut: "2023-04-05T20:13",
     assignmentDateTimeGivenDue: "2023-05-05T20:13",
     assignmentGrade: "99.5%",
+    image: studyImage,
     notes: [
       "List categories",
       "List products in these categories.",
