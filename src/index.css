@@ -51,3 +51,16 @@ header {
 #cancelModuleBtn {
   flex-grow: 1;
 }
+
+/* footer styles */
+footer {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.d-flex,
+#footer-icons {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
