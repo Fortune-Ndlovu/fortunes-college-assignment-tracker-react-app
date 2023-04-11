@@ -102,14 +102,10 @@ function App() {
             <Route
               path="/"
               element={
-                <>
-                  <div className="row justify-content-center">
-                    <div className="col-4">
+                <div className="row align-items-center">
                       {/* Component that renders the list of college modules */}
                       <AssignmentTracker modules={collegeModules} />
-                    </div>
-                  </div>
-                </>
+                </div>
               }
             />
 
@@ -117,7 +113,6 @@ function App() {
             <Route
               path="/add/"
               element={
-                // {/* Component that renders the form that allows the user to add a new college module and handles error handling*/}
                 <NewCollegeModuleForm onSubmitHandler={addCollegeModule} />
               }
             />

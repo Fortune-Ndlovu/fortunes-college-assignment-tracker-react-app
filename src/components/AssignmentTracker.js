@@ -7,17 +7,19 @@ const AssignmentTracker = ({ modules }) => {
   return (
     <>
       {modules.map((item) => (
-        <Card key={item.id} style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={item.image} alt="study image" />
-          <Card.Body>
-            <Card.Title>{item.name}</Card.Title>
-            <Link to={`/module/${item.id}`}>Let's Go in!</Link>
-          </Card.Body>
-        </Card>
-      ))}
-      <Link to={"/add/"}>
-        <Button variant="success">Add Assignment</Button>
-      </Link>
+            <div className="col" key={item.id}>
+            <Card  style={{ width: "18rem" }}>
+              <Card.Img variant="top" src={item.image} alt="study image" />
+              <Card.Body>
+                <Card.Title>{item.name}</Card.Title>
+                <Link to={`/module/${item.id}`}>Let's Go in!</Link>
+              </Card.Body>
+            </Card>
+        </div>
+          ))}
+        <Link to={"/add/"}>
+          <Button variant="success">Add Assignment</Button>
+        </Link>
     </>
   );
 };
