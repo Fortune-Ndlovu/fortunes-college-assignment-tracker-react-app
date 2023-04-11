@@ -20,3 +20,9 @@ main {
   height: 500px;
   min-height: calc(100vh - 56px - 24px);
 }
+
+/* styling Cards in home page */
+.d-grid.gap-2 {
+  text-align: center;
+  padding-top: 50px;
+}

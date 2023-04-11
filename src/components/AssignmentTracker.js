@@ -8,7 +8,7 @@ const AssignmentTracker = ({ modules }) => {
     <>
       {modules.map((item) => (
             <div className="col" key={item.id}>
-            <Card  style={{ width: "18rem" }}>
+            <Card>
               <Card.Img variant="top" src={item.image} alt="study image" />
               <Card.Body>
                 <Card.Title>{item.name}</Card.Title>
@@ -17,9 +17,11 @@ const AssignmentTracker = ({ modules }) => {
             </Card>
         </div>
           ))}
-        <Link to={"/add/"}>
-          <Button variant="success">Add Assignment</Button>
-        </Link>
+        <div className="d-grid gap-2">
+          <Link to={"/add/"}>
+            <Button variant="success" size="lg">Add Module</Button>
+          </Link>
+        </div>
     </>
   );
 };
