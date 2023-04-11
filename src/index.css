@@ -21,8 +21,20 @@ main {
   min-height: calc(100vh - 56px - 24px);
 }
 
-/* styling Cards in home page */
+/* home page: */
+
+/* styling Cards in  */
 .d-grid.gap-2 {
   text-align: center;
   padding-top: 50px;
+}
+
+header {
+  padding-bottom: 3rem!important;
+}
+
+#appBox {
+  border: 2px solid lightgrey;
+  padding: 5px;
+  border-radius: 10px;
 }

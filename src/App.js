@@ -13,7 +13,7 @@ import studyImage from "./images/study.jpg";
 const sampleData = [
   {
     id: 1,
-    name: "Web Development Frameworks",
+    name: "Web Dev Frameworks",
     assignmentName: "Student College Assignment Tracker",
     assignmentDateTimeGivenOut: "2023-04-05T20:13",
     assignmentDateTimeGivenDue: "2023-05-05T20:13",
@@ -98,52 +98,54 @@ function App() {
       <div className="container-sm p-2">
         <Header />
         <div className="container">
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <div className="row align-items-center">
-                      {/* Component that renders the list of college modules */}
-                      <AssignmentTracker modules={collegeModules} />
-                </div>
-              }
-            />
+          <div id="appBox">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <div className="row align-items-center">
+                        {/* Component that renders the list of college modules */}
+                        <AssignmentTracker modules={collegeModules} />
+                  </div>
+                }
+              />
 
-            {/* Any path that starts with "/add/" render the SingleCollegeModule component*/}
-            <Route
-              path="/add/"
-              element={
-                <NewCollegeModuleForm onSubmitHandler={addCollegeModule} />
-              }
-            />
+              {/* Any path that starts with "/add/" render the SingleCollegeModule component*/}
+              <Route
+                path="/add/"
+                element={
+                  <NewCollegeModuleForm onSubmitHandler={addCollegeModule} />
+                }
+              />
 
-            <Route path="/about" element={<About />} />
+              <Route path="/about" element={<About />} />
 
-            {/* Any path that starts with "/module/" render the SingleCollegeModule component*/}
-            <Route
-              path="/module/:moduleID"
-              element={
-                <SingleCollegeModule
-                  modules={collegeModules}
-                  onDelete={deleteCollegeModule}
-                />
-              }
-            />
+              {/* Any path that starts with "/module/" render the SingleCollegeModule component*/}
+              <Route
+                path="/module/:moduleID"
+                element={
+                  <SingleCollegeModule
+                    modules={collegeModules}
+                    onDelete={deleteCollegeModule}
+                  />
+                }
+              />
 
-            {/* Any path that starts with "/edit/" render the EditCollegeModule component*/}
-            <Route
-              path="/edit/:moduleID"
-              element={
-                <EditCollegeModule
-                  modules={collegeModules}
-                  onEdit={editCollegeModule}
-                />
-              }
-            />
-          </Routes>
+              {/* Any path that starts with "/edit/" render the EditCollegeModule component*/}
+              <Route
+                path="/edit/:moduleID"
+                element={
+                  <EditCollegeModule
+                    modules={collegeModules}
+                    onEdit={editCollegeModule}
+                  />
+                }
+              />
+            </Routes>
+          </div>
         </div>
-      </div>
       <Footer />
+      </div>
     </Router>
   );
 }

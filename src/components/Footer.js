@@ -1,64 +1,65 @@
-import React from "react";
+import React from 'react';
+import { CDBLink, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
 
 const Footer = () => {
   return (
-    <>
-      <footer className="page-footer font-small blue pt-4">
-        <div className="container-fluid text-center text-md-left">
-          <div className="row">
-            <div className="col-md-6 mt-md-0 mt-3">
-              <h5 className="text-uppercase">Footer Content</h5>
-              <p>
-                Here you can use rows and columns to organize your footer
-                content.
-              </p>
-            </div>
-
-            <hr className="clearfix w-100 d-md-none pb-0" />
-
-            <div className="col-md-3 mb-md-0 mb-3">
-              <h5 className="text-uppercase">Links</h5>
-              <ul className="list-unstyled">
-                <li>
-                  <a href="#!">Link 1</a>
-                </li>
-                <li>
-                  <a href="#!">Link 2</a>
-                </li>
-                <li>
-                  <a href="#!">Link 3</a>
-                </li>
-                <li>
-                  <a href="#!">Link 4</a>
-                </li>
-              </ul>
-            </div>
-
-            <div className="col-md-3 mb-md-0 mb-3">
-              <h5 className="text-uppercase">Links</h5>
-              <ul className="list-unstyled">
-                <li>
-                  <a href="#!">Link 1</a>
-                </li>
-                <li>
-                  <a href="#!">Link 2</a>
-                </li>
-                <li>
-                  <a href="#!">Link 3</a>
-                </li>
-                <li>
-                  <a href="#!">Link 4</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="footer-copyright text-center py-3">
-          © 2023 Fortune Ndlovu
-        </div>
-      </footer>
-    </>
+    <CDBBox  className="shadow">
+      <CDBBox display="flex" flex="column" className="mx-auto py-5" style={{ width: '90%' }}>
+        <CDBBox display="flex" justifyContent="between" className="flex-wrap">
+          <CDBBox>
+            <a href="/" className="d-flex align-items-center p-0 text-dark">
+              <span className="ms-3 h5 font-weight-bold">Module Tracker</span>
+            </a>
+            <p className="my-3" style={{ width: '250px' }}>
+              We are helping folks manage thier college modules more efficiently.
+            </p>
+            <CDBBox display="flex" className="mt-4">
+              <CDBBtn flat color="dark">
+                <CDBIcon fab icon="facebook-f" />
+              </CDBBtn>
+              <CDBBtn flat color="dark" className="mx-3">
+                <CDBIcon fab icon="twitter" />
+              </CDBBtn>
+              <CDBBtn flat color="dark" className="p-2">
+                <CDBIcon fab icon="instagram" />
+              </CDBBtn>
+            </CDBBox>
+          </CDBBox>
+          <CDBBox>
+            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
+            Module Tracker
+            </p>
+            <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
+              <CDBLink href="/">Resources</CDBLink>
+              <CDBLink href="/">About Us</CDBLink>
+              <CDBLink href="/">Contact</CDBLink>
+              <CDBLink href="/">Blog</CDBLink>
+            </CDBBox>
+          </CDBBox>
+          <CDBBox>
+            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
+              Help
+            </p>
+            <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
+              <CDBLink href="/">Support</CDBLink>
+              <CDBLink href="/">Sign Up</CDBLink>
+              <CDBLink href="/">Sign In</CDBLink>
+            </CDBBox>
+          </CDBBox>
+          <CDBBox>
+            <p className="h5 mb-4" style={{ fontWeight: '600' }}>
+              Products
+            </p>
+            <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
+              <CDBLink href="/">Windframe</CDBLink>
+              <CDBLink href="/">Loop</CDBLink>
+              <CDBLink href="/">Contrast</CDBLink>
+            </CDBBox>
+          </CDBBox>
+        </CDBBox>
+        <small className="text-center mt-5">&copy; Module Tracker, 2023. All rights reserved.</small>
+      </CDBBox>
+    </CDBBox >
   );
 };
 
