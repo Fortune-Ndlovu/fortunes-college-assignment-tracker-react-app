@@ -10,6 +10,8 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
 
   // Use state to manage input validation
   const [isNameValid, setIsNameValid] = useState(true);
+  const [isImageValid, setIsImageValid] = useState(true);
+
 
   const handleFormCancel = (e) => {
     e.preventDefault();
@@ -24,8 +26,16 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
     if (!e.target.modulesName.value) {
       setIsNameValid(false);
       return;
-    } else {
-      setIsNameValid(true);
+    } 
+    
+    else setIsNameValid(true);
+    
+    if(!imageRef.current.files[0]) {
+      setIsImageValid(false);
+      return;
+    }
+    
+    else {  setIsImageValid(true);
       // Create a new JS object using the value of the modulesName
       let newCollegeModule = {
         name: e.target.modulesName.value,
@@ -74,11 +84,13 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
         </label>
         <input
           type="file"
-          className="form-control"
+          className={`form-control ${isImageValid ? "" : "is-invalid"}`}
           id="image"
           name="image"
           ref={imageRef}
+          onChange={() => setIsImageValid(true)} // Reset validation when input changes
         />
+        <div className="invalid-feedback">Please add an image.</div> {/* Add the invalid-feedback class for displaying validation error message */}
       </div>
       <div className="moduleAddCancelBtn">
         <button type="submit" className="btn btn-sm btn-success" id="addModuleBtn">
