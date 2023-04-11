@@ -6,7 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 const Header = () => {
   return (
     <header>
-        <Navbar collapseOnSelect expand="lg" bg="light" style={{backgroundColor: "#e3f2fd;"}}>
+        <Navbar collapseOnSelect expand="lg" bg="light" style={{backgroundColor: "#e3f2fd"}}>
           <Container>
             <Navbar.Brand href="/">Module Tracker</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />

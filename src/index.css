@@ -38,3 +38,16 @@ header {
   padding: 5px;
   border-radius: 10px;
 }
+
+.moduleAddCancelBtn {
+  display: flex;
+  justify-content: space-between;
+}
+
+#addModuleBtn {
+  flex-grow: 4;
+}
+
+#cancelModuleBtn {
+  flex-grow: 1;
+}

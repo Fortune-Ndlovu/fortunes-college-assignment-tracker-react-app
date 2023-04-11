@@ -73,14 +73,16 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
           ref={imageRef}
         />
       </div>
-      <input type="submit" className="btn btn-primary" value="Add" />
-      <button
-        type="button"
-        className="btn btn-sm btn-warning"
-        onClick={handleFormCancel}
-      >
-        Cancel
-      </button>
+      <div className="moduleAddCancelBtn">
+        <button type="submit" className="btn btn-sm btn-success" id="addModuleBtn">Add</button>
+        <button
+          type="button"
+          className="btn btn-sm btn-warning" id="cancelModuleBtn"
+          onClick={handleFormCancel}
+        >
+          Cancel
+        </button>
+      </div>
     </form>
   );
 };
