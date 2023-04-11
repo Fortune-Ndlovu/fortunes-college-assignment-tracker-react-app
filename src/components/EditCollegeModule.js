@@ -136,7 +136,7 @@ const EditCollegeModule = ({ modules, onEdit }) => {
         <label htmlFor="image">User Image</label>
         <input type="file" onChange={handleImageChange} />
         {userImage && (
-          <img src={userImage} alt="Edited Image" width="250" height="250" />
+          <img src={userImage} alt="Study books" width="250" height="250" />
         )}
         {/* Render other form fields and submit button */}
       </div>
