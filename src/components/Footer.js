@@ -12,7 +12,7 @@ const Footer = () => {
                 <span className="h5 font-weight-bold">Module Tracker</span>
               </a>
               <p className="my-3" style={{ width: '250px' }}>
-                We are helping folks manage thier college modules more efficiently.
+                We are helping folks manage their college modules more efficiently.
               </p>
               <CDBBox display="flex" className="mt-4" id="footer-icons">
                 <CDBBtn flat color="dark">
