@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const NewCollegeModuleForm = ({ onSubmitHandler }) => {
@@ -7,6 +7,9 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
 
   // Use a ref to store the selected image file
   const imageRef = useRef(null);
+
+  // Use state to manage input validation
+  const [isNameValid, setIsNameValid] = useState(true);
 
   const handleFormCancel = (e) => {
     e.preventDefault();
@@ -19,8 +22,10 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
     // If the value of the modulesName is empty, display an
     // alert message and return
     if (!e.target.modulesName.value) {
-      alert("Please add a name");
+      setIsNameValid(false);
+      return;
     } else {
+      setIsNameValid(true);
       // Create a new JS object using the value of the modulesName
       let newCollegeModule = {
         name: e.target.modulesName.value,
@@ -55,11 +60,13 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
         </label>
         <input
           type="text"
-          className="form-control"
+          className={`form-control ${isNameValid ? "" : "is-invalid"}`}
           id="modulesName"
           name="modulesName"
           placeholder="Enter Name"
+          onChange={() => setIsNameValid(true)} // Reset validation when input changes
         />
+        <div className="invalid-feedback">Please add a name.</div> {/* Add the invalid-feedback class for displaying validation error message */}
       </div>
       <div className="mb-3">
         <label htmlFor="image" className="form-label">
@@ -74,10 +81,13 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
         />
       </div>
       <div className="moduleAddCancelBtn">
-        <button type="submit" className="btn btn-sm btn-success" id="addModuleBtn">Add</button>
+        <button type="submit" className="btn btn-sm btn-success" id="addModuleBtn">
+          Add
+        </button>
         <button
           type="button"
-          className="btn btn-sm btn-warning" id="cancelModuleBtn"
+          className="btn btn-sm btn-warning"
+          id="cancelModuleBtn"
           onClick={handleFormCancel}
         >
           Cancel
