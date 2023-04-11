@@ -7,21 +7,22 @@ const AssignmentTracker = ({ modules }) => {
   return (
     <>
       {modules.map((item) => (
-            <div className="col" key={item.id}>
-            <Card>
-              <Card.Img variant="top" src={item.image} alt="study image" />
-              <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
-                <Link to={`/module/${item.id}`}>Let's Go in!</Link>
-              </Card.Body>
-            </Card>
+            <div className="col-sm-6" key={item.id}>
+              <Link to={`/module/${item.id}`}>
+                <Card>
+                  <Card.Img variant="top" src={item.image} alt="study image" className="cardImgs"/>
+                  <Card.Body>
+                    <Card.Title>{item.name}</Card.Title>
+                  </Card.Body>
+                </Card>
+              </Link><br/>
         </div>
           ))}
-        <div className="d-grid gap-2">
           <Link to={"/add/"}>
+        <div className="d-grid gap-2">
             <Button variant="success" size="lg">Add Module</Button>
-          </Link>
         </div>
+          </Link>
     </>
   );
 };
