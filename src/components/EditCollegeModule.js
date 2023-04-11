@@ -5,9 +5,7 @@ import NotesTracker from "./NotesTracker";
 const EditCollegeModule = ({ modules, onEdit }) => {
   // State variables used to store different values for different form fields the intial values are empty strings or array
   const [name, setName] = useState("");
-
   const [userImage, setUserImage] = useState(null);
-
   const [assignmentName, setAssignmentName] = useState("");
   const [assignmentDateTimeGivenOut, setAssignmentDateTimeGivenOut] =
     useState("");
@@ -29,19 +27,27 @@ const EditCollegeModule = ({ modules, onEdit }) => {
     (item) => item.id === Number(urlParameters.moduleID)
   );
 
+  // Define moduleToDisplay as a state variable
+  const [moduleToDisplay, setModuleToDisplay] = useState(moduleToEdit);
+
   // Several event handlers to call when different form fields are changed.
   // These event handlers are used to update the state variables with the new values entered by the user.
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setUserImage(reader.result);
-    };
-    reader.readAsDataURL(file);
+  const handleImageChange = (e) => {
+    const imageFile = e.target.files[0]; // Get the uploaded image file
+    setUserImage(imageFile); // Update the userImage state variable with the new image file
+
+    const formData = new FormData(); // Create a new FormData object
+    formData.append("image", imageFile); // Append the image file to the FormData object
+
+    // Update the moduleToDisplay object with the new image source
+    setModuleToDisplay({
+      ...moduleToDisplay,
+      image: formData
+    });
   };
 
   const handleAssignmentNameChange = (e) => {
