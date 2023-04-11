@@ -26,40 +26,39 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
     if (!e.target.modulesName.value) {
       setIsNameValid(false);
       return;
-    } 
-    
-    else setIsNameValid(true);
-    
-    if(!imageRef.current.files[0]) {
+    } else {
+        setIsNameValid(true);
+    }
+
+    if (!imageRef.current.files[0]) {
       setIsImageValid(false);
-      return;
-    }
-    
-    else {  setIsImageValid(true);
-      // Create a new JS object using the value of the modulesName
-      let newCollegeModule = {
-        name: e.target.modulesName.value,
-        assignmentName: e.target.assignmentName,
-        assignmentDateTimeGivenOut: e.target.assignmentDateTimeGivenOut,
-        assignmentDateTimeGivenDue: e.target.assignmentDateTimeGivenDue,
-        grade: e.target.grade,
-        image: imageRef.current.files[0]
-      };
+    } else {
+        setIsImageValid(true);
 
-      // "Blank out" the modulesName
-      e.target.modulesName.value = "";
+        // Create a new JS object using the value of the modulesName
+        let newCollegeModule = {
+          name: e.target.modulesName.value,
+          assignmentName: e.target.assignmentName,
+          assignmentDateTimeGivenOut: e.target.assignmentDateTimeGivenOut,
+          assignmentDateTimeGivenDue: e.target.assignmentDateTimeGivenDue,
+          grade: e.target.grade,
+          image: imageRef.current.files[0]
+        };
 
-      // Read the contents of the selected image file and convert it to a data URL
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        newCollegeModule.image = event.target.result;
+        // "Blank out" the modulesName
+        e.target.modulesName.value = "";
 
-        // Call the onSubmitHandler function that was passed in via prop
-        onSubmitHandler(newCollegeModule);
-        navigate("/");
-      };
-      reader.readAsDataURL(newCollegeModule.image);
-    }
+        // Read the contents of the selected image file and convert it to a data URL
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          newCollegeModule.image = event.target.result;
+
+          // Call the onSubmitHandler function that was passed in via prop
+          onSubmitHandler(newCollegeModule);
+          navigate("/");
+        };
+        reader.readAsDataURL(newCollegeModule.image);
+      }
   };
 
   return (
