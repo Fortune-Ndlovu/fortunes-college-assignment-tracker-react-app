@@ -30,7 +30,12 @@ code {
 header {
   padding-bottom: 3rem !important;
 }
-
+.logo {
+  padding-left: 10px;
+}
+.button.navbar-toggler.collapsed {
+  margin-right: 10px;
+}
 .navbar,
 .me-auto.navbar-nav {
   gap: 20px;
@@ -42,6 +47,7 @@ around the main body of our app */
   padding: 40px 0;
   text-align: center;
 }
+
 #appBox {
   border: 1px solid lightgrey;
   padding: 20px;

@@ -95,8 +95,8 @@ function App() {
 
   return (
     <Router>
+      <Header />
       <div className="container-sm p-2">
-        <Header />
         <div className="structure">
           <div className="container">
             <div id="appBox">
@@ -105,8 +105,8 @@ function App() {
                   path="/"
                   element={
                     <div className="row align-items-center">
-                          {/* Component that renders the list of college modules */}
-                          <AssignmentTracker modules={collegeModules} />
+                      {/* Component that renders the list of college modules */}
+                      <AssignmentTracker modules={collegeModules} />
                     </div>
                   }
                 />
@@ -145,8 +145,8 @@ function App() {
               </Routes>
             </div>
           </div>
-        <Footer />
-      </div>
+          <Footer />
+        </div>
       </div>
     </Router>
   );
