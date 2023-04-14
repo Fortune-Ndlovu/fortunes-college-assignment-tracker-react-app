@@ -1,5 +1,7 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
+import Card from "react-bootstrap/Card";
+import ListGroup from "react-bootstrap/ListGroup";
 import DeleteModule from "./DeleteModule";
 
 const SingleCollegeModule = ({ modules, onDelete }) => {
@@ -23,59 +25,77 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
   return (
     <div>
       {moduleToDisplay ? (
-        <div>
-          <div>Module Name: {moduleToDisplay.name}</div>
-          <div>
-            <img
-              src={
-                moduleToDisplay.image instanceof FormData
-                  ? URL.createObjectURL(moduleToDisplay.image.get('image'))
-                  : moduleToDisplay.image
-              }
-              width="250"
-              height="250"
-              alt="Module Image"
-            />
-          </div>
-          <div>Assignment Name: {moduleToDisplay.assignmentName}</div>
-          <div>
-            Assignment Date Given Out: {moduleToDisplay.assignmentDateTimeGivenOut}
-          </div>
-          <div>
-            Assignment Date Given Due: {moduleToDisplay.assignmentDateTimeGivenDue}
-          </div>
-          <div>Assignment Grade: {moduleToDisplay.grade}</div>
-          <br />
-          <div>
-            Notes:
-            <ul>
-              {/**
-               *  Using a conditional rendering technique to only render the moduleToDisplay.notes if it exits and is truthy
-               *  We then map over the array of notes creating a list item for each note with a unique key being the index.
-               */}
-              {moduleToDisplay.notes &&
-                moduleToDisplay.notes.map((note, index) => (
-                  <li key={index}>{note}</li>
-                ))}
-            </ul>
-          </div>
+        <Card>
+          <Card.Img
+            variant="top"
+            src={
+              moduleToDisplay.image instanceof FormData
+                ? URL.createObjectURL(moduleToDisplay.image.get("image"))
+                : moduleToDisplay.image
+            }
+            width="250"
+            height="250"
+            alt="Module Identifier"
+          />
+          <Card.Body>
+            <Card.Title className="moduleTitle">
+              <h2>{moduleToDisplay.name}</h2>{" "}
+              <DeleteModule
+                onDelete={onDelete}
+                moduleToDisplay={moduleToDisplay}
+              />
+            </Card.Title>
+            <Card.Title>
+              <h3>{moduleToDisplay.assignmentName}</h3>
+            </Card.Title>
+          </Card.Body>
+          <ListGroup className="list-group-flush">
+            <ListGroup.Item>
+              Assignment Date Given Out:{" "}
+              {moduleToDisplay.assignmentDateTimeGivenOut}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Assignment Date Given Due:{" "}
+              {moduleToDisplay.assignmentDateTimeGivenDue}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Assignment Grade: {moduleToDisplay.grade}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Notes:
+              <ul>
+                {/**
+                 *  Using a conditional rendering technique to only render the moduleToDisplay.notes if it exits and is truthy
+                 *  We then map over the array of notes creating a list item for each note with a unique key being the index.
+                 */}
+                {moduleToDisplay.notes &&
+                  moduleToDisplay.notes.map((note, index) => (
+                    <li key={index}>{note}</li>
+                  ))}
+              </ul>
+            </ListGroup.Item>
+          </ListGroup>
           {/*  passing the value of the notes property of the moduleToDisplay object as a prop when you navigate to the /module/${updatedModule.id} */}
-          <Link
-            to={`/edit/${moduleToDisplay.id}`}
-            state={{ notes: moduleToDisplay.notes }}
-          >
-            <button className="btn btn-sm btn-info">Edit</button>
-          </Link>
-          <div>
-            <DeleteModule onDelete={onDelete} moduleToDisplay={moduleToDisplay} />
+          <div className="moduleEditDeleteBtns">
+            <Link
+              to={`/edit/${moduleToDisplay.id}`}
+              state={{ notes: moduleToDisplay.notes }}
+              className="btn btn-sm btn-success"
+              id="editModuleBtn"
+            >
+              Edit Module
+            </Link>
+            {/* <DeleteModule
+              onDelete={onDelete}
+              moduleToDisplay={moduleToDisplay}
+            /> */}
           </div>
-        </div>
+        </Card>
       ) : (
         <div>Loading module...</div>
       )}
     </div>
   );
-  
 };
 
 export default SingleCollegeModule;

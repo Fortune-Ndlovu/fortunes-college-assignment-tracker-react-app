@@ -96,7 +96,7 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
           {/* Add the invalid-feedback class for displaying validation error message */}
         </div>
       </div>
-      <div className="moduleAddCancelBtn">
+      <div className="moduleAddCancelBtns">
         <button
           type="submit"
           className="btn btn-sm btn-success"

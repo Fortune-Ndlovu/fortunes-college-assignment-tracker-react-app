@@ -66,27 +66,42 @@ button.btn.btn-success.btn-lg {
   border-radius: 0.25rem;
 }
 
-/* styles for the NewCollegeModuleForm component */
-.moduleAddCancelBtn {
+/* styles for the NewCollegeModuleForm AND SingleCollegeModule components */
+.moduleAddCancelBtns {
+  padding-top: 20px;
+}
+
+.moduleAddCancelBtns,
+.moduleEditDeleteBtns {
   display: flex;
   justify-content: space-between;
-  padding-top: 20px;
   gap: 20px;
 }
 
-#addModuleBtn {
+#addModuleBtn,
+#editModuleBtn {
   flex-grow: 4;
 }
 
-button#addModuleBtn {
+button#addModuleBtn,
+#editModuleBtn {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-#cancelModuleBtn {
+#cancelModuleBtn,
+#test {
   flex-grow: 1;
 }
 
+.moduleTitle {
+  display: flex;
+}
+/* #deleteModuleBtn {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+} */
 /*styles the footer component*/
 footer,
 .d-flex,
