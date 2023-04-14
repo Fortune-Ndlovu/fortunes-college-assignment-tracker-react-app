@@ -12,7 +12,6 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
   const [isNameValid, setIsNameValid] = useState(true);
   const [isImageValid, setIsImageValid] = useState(true);
 
-
   const handleFormCancel = (e) => {
     e.preventDefault();
     navigate("/");
@@ -27,72 +26,82 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
       setIsNameValid(false);
       return;
     } else {
-        setIsNameValid(true);
+      setIsNameValid(true);
     }
 
     if (!imageRef.current.files[0]) {
       setIsImageValid(false);
     } else {
-        setIsImageValid(true);
+      setIsImageValid(true);
 
-        // Create a new JS object using the value of the modulesName
-        let newCollegeModule = {
-          name: e.target.modulesName.value,
-          assignmentName: e.target.assignmentName,
-          assignmentDateTimeGivenOut: e.target.assignmentDateTimeGivenOut,
-          assignmentDateTimeGivenDue: e.target.assignmentDateTimeGivenDue,
-          grade: e.target.grade,
-          image: imageRef.current.files[0]
-        };
+      // Create a new JS object using the value of the modulesName
+      let newCollegeModule = {
+        name: e.target.modulesName.value,
+        assignmentName: e.target.assignmentName,
+        assignmentDateTimeGivenOut: e.target.assignmentDateTimeGivenOut,
+        assignmentDateTimeGivenDue: e.target.assignmentDateTimeGivenDue,
+        grade: e.target.grade,
+        image: imageRef.current.files[0]
+      };
 
-        // "Blank out" the modulesName
-        e.target.modulesName.value = "";
+      // "Blank out" the modulesName
+      e.target.modulesName.value = "";
 
-        // Read the contents of the selected image file and convert it to a data URL
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          newCollegeModule.image = event.target.result;
+      // Read the contents of the selected image file and convert it to a data URL
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        newCollegeModule.image = event.target.result;
 
-          // Call the onSubmitHandler function that was passed in via prop
-          onSubmitHandler(newCollegeModule);
-          navigate("/");
-        };
-        reader.readAsDataURL(newCollegeModule.image);
-      }
+        // Call the onSubmitHandler function that was passed in via prop
+        onSubmitHandler(newCollegeModule);
+        navigate("/");
+      };
+      reader.readAsDataURL(newCollegeModule.image);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mb-3">
-        <label htmlFor="modulesName" className="form-label">
-          Name:{" "}
-        </label>
-        <input
-          type="text"
-          className={`form-control ${isNameValid ? "" : "is-invalid"}`}
-          id="modulesName"
-          name="modulesName"
-          placeholder="Enter Name"
-          onChange={() => setIsNameValid(true)} // Reset validation when input changes
-        />
-        <div className="invalid-feedback">Please add a name.</div> {/* Add the invalid-feedback class for displaying validation error message */}
+      <div className="form-group">
+        <div className="mb-3">
+          <label htmlFor="modulesName" className="form-label">
+            Name:{" "}
+          </label>
+          <input
+            type="text"
+            className={`form-control ${isNameValid ? "" : "is-invalid"}`}
+            id="modulesName"
+            name="modulesName"
+            placeholder="Enter Name"
+            onChange={() => setIsNameValid(true)} // Reset validation when input changes
+          />
+          <div className="invalid-feedback">Please add a name.</div>{" "}
+          {/* Add the invalid-feedback class for displaying validation error message */}
+        </div>
       </div>
-      <div className="mb-3">
-        <label htmlFor="image" className="form-label">
-          Image:{" "}
-        </label>
-        <input
-          type="file"
-          className={`form-control ${isImageValid ? "" : "is-invalid"}`}
-          id="image"
-          name="image"
-          ref={imageRef}
-          onChange={() => setIsImageValid(true)} // Reset validation when input changes
-        />
-        <div className="invalid-feedback">Please add an image.</div> {/* Add the invalid-feedback class for displaying validation error message */}
+      <div className="form-group">
+        <div className="mb-3">
+          <label htmlFor="image" className="form-label">
+            Image:{" "}
+          </label>
+          <input
+            type="file"
+            className={`form-control ${isImageValid ? "" : "is-invalid"}`}
+            id="image"
+            name="image"
+            ref={imageRef}
+            onChange={() => setIsImageValid(true)} // Reset validation when input changes
+          />
+          <div className="invalid-feedback">Please add an image.</div>{" "}
+          {/* Add the invalid-feedback class for displaying validation error message */}
+        </div>
       </div>
       <div className="moduleAddCancelBtn">
-        <button type="submit" className="btn btn-sm btn-success" id="addModuleBtn">
+        <button
+          type="submit"
+          className="btn btn-sm btn-success"
+          id="addModuleBtn"
+        >
           Add
         </button>
         <button

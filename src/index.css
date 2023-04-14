@@ -54,7 +54,6 @@ div#responsive-navbar-nav {
 around the main body of our app */
 .structure {
   padding: 40px 0;
-  text-align: center;
 }
 
 #appBox {
@@ -63,14 +62,25 @@ around the main body of our app */
   border-radius: 10px;
 }
 
+button.btn.btn-success.btn-lg {
+  border-radius: 0.25rem;
+}
+
 /* styles for the NewCollegeModuleForm component */
 .moduleAddCancelBtn {
   display: flex;
   justify-content: space-between;
+  padding-top: 20px;
+  gap: 20px;
 }
 
 #addModuleBtn {
   flex-grow: 4;
+}
+
+button#addModuleBtn {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 #cancelModuleBtn {
