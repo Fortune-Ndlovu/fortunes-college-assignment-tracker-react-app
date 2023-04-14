@@ -30,12 +30,21 @@ code {
 header {
   padding-bottom: 3rem !important;
 }
+
 .logo {
   padding-left: 10px;
 }
-.button.navbar-toggler.collapsed {
+
+button.navbar-toggler.collapsed,
+button.navbar-toggler {
   margin-right: 10px;
 }
+
+div#responsive-navbar-nav {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .navbar,
 .me-auto.navbar-nav {
   gap: 20px;

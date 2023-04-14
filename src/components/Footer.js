@@ -1,18 +1,25 @@
-import React from 'react';
-import { CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
+import React from "react";
+import { Link } from "react-router-dom";
+import { CDBBox, CDBBtn, CDBIcon } from "cdbreact";
 
 const Footer = () => {
   return (
     <footer>
-      <CDBBox  className="footer">
-        <CDBBox display="flex" flex="column" className="mx-auto py-5" style={{ width: '90%' }}>
+      <CDBBox className="footer">
+        <CDBBox
+          display="flex"
+          flex="column"
+          className="mx-auto py-5"
+          style={{ width: "90%" }}
+        >
           <CDBBox display="flex" justifyContent="between" className="flex-wrap">
             <CDBBox>
-              <a href="/" className="d-flex align-items-center text-dark">
+              <Link to={"/"} className="d-flex align-items-center text-dark">
                 <span className="h5 font-weight-bold">Module Tracker</span>
-              </a>
-              <p className="my-3" style={{ width: '250px' }}>
-                We are helping folks manage their college modules more efficiently.
+              </Link>
+              <p className="my-3" style={{ width: "250px" }}>
+                We are helping folks manage their college modules more
+                efficiently.
               </p>
               <CDBBox display="flex" className="mt-4" id="footer-icons">
                 <CDBBtn flat color="dark">
@@ -26,10 +33,12 @@ const Footer = () => {
                 </CDBBtn>
               </CDBBox>
             </CDBBox>
-            </CDBBox>
-          <small className="text-center mt-5">&copy; Module Tracker, 2023. All rights reserved.</small>
+          </CDBBox>
+          <small className="text-center mt-5">
+            &copy; Module Tracker, 2023. All rights reserved.
+          </small>
         </CDBBox>
-      </CDBBox >
+      </CDBBox>
     </footer>
   );
 };
