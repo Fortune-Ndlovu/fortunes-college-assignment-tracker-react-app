@@ -5,7 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   display: flex;
   min-height: 100vh;
   flex-direction: column;
@@ -15,13 +14,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-main {
-  flex: 1;
-  height: 500px;
-  min-height: calc(100vh - 56px - 24px);
-}
-
-/* home page: */
 
 /* styling Cards  */
 .d-grid.gap-2 {
@@ -34,16 +26,29 @@ main {
   border-bottom-right-radius: 5px;
 }
 
+/* header styles */
 header {
-  padding-bottom: 3rem!important;
+  padding-bottom: 3rem !important;
 }
 
+.navbar,
+.me-auto.navbar-nav {
+  gap: 20px;
+}
+
+/* styles for the box that wraps 
+around the main body of our app */
+.structure {
+  padding: 40px 0;
+  text-align: center;
+}
 #appBox {
   border: 1px solid lightgrey;
   padding: 20px;
   border-radius: 10px;
 }
 
+/* styles for the NewCollegeModuleForm component */
 .moduleAddCancelBtn {
   display: flex;
   justify-content: space-between;
@@ -57,22 +62,11 @@ header {
   flex-grow: 1;
 }
 
-/* footer styles */
-footer {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-}
+/*styles the footer component*/
+footer,
 .d-flex,
 #footer-icons {
   display: flex;
   text-align: center;
   justify-content: center;
-}
-
-
-
-.structure {
-  padding: 40px 0;
-  text-align: center;
 }
