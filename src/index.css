@@ -30,9 +30,14 @@ code {
 header {
   padding-bottom: 3rem !important;
 }
-
+.book {
+  color: #145b15;
+  font-size: 20px;
+}
 .logo {
   padding-left: 10px;
+  color: #011640;
+  font-weight: 500;
 }
 
 button.navbar-toggler.collapsed,
