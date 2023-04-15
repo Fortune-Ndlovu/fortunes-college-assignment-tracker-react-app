@@ -45,6 +45,14 @@ header {
 .searchIcon {
   font-size: 22px;
 }
+.moduleItemName {
+  text-align: center;
+  color: #011640;
+}
+
+.moduleLinkCard {
+  text-decoration: none;
+}
 
 button.navbar-toggler.collapsed,
 button.navbar-toggler {

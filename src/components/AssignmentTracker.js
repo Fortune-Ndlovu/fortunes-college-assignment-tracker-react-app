@@ -9,7 +9,7 @@ const AssignmentTracker = ({ modules }) => {
     <>
       {modules.map((item) => (
         <div className="col-sm-6" key={item.id}>
-          <Link to={`/module/${item.id}`}>
+          <Link to={`/module/${item.id}`} className="moduleLinkCard">
             <Card>
               <Card.Img
                 variant="top"
@@ -22,7 +22,7 @@ const AssignmentTracker = ({ modules }) => {
                 className="cardImgs"
               />
               <Card.Body>
-                <Card.Title>{item.name}</Card.Title>
+                <Card.Title className="moduleItemName">{item.name}</Card.Title>
               </Card.Body>
             </Card>
           </Link>
