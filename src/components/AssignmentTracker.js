@@ -7,22 +7,34 @@ const AssignmentTracker = ({ modules }) => {
   return (
     <>
       {modules.map((item) => (
-            <div className="col-sm-6" key={item.id}>
-              <Link to={`/module/${item.id}`}>
-                <Card>
-                  <Card.Img variant="top" src={item.image} alt="study image" className="cardImgs"/>
-                  <Card.Body>
-                    <Card.Title>{item.name}</Card.Title>
-                  </Card.Body>
-                </Card>
-              </Link><br/>
-        </div>
-          ))}
-          <Link to={"/add/"}>
-        <div className="d-grid gap-2">
-            <Button variant="success" size="lg">Add Module</Button>
-        </div>
+        <div className="col-sm-6" key={item.id}>
+          <Link to={`/module/${item.id}`}>
+            <Card>
+              <Card.Img
+                variant="top"
+                src={
+                  item.image instanceof FormData
+                    ? URL.createObjectURL(item.image.get("image"))
+                    : item.image
+                }
+                alt="study image"
+                className="cardImgs"
+              />
+              <Card.Body>
+                <Card.Title>{item.name}</Card.Title>
+              </Card.Body>
+            </Card>
           </Link>
+          <br />
+        </div>
+      ))}
+      <Link to={"/add/"}>
+        <div className="d-grid gap-2">
+          <Button variant="success" size="lg">
+            Add Module
+          </Button>
+        </div>
+      </Link>
     </>
   );
 };
