@@ -36,6 +36,7 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
             width="250"
             height="250"
             alt="Module Identifier"
+            className="cardImgs"
           />
           <Card.Body>
             <Card.Title className="moduleTitle">
@@ -49,11 +50,11 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
               </Card.Title>
             </ListGroup.Item>
             <ListGroup.Item>
-              Assignment Date Given Out:{" "}<br/>
+              Assignment Date Given Out: <br />
               {moduleToDisplay.assignmentDateTimeGivenOut}
             </ListGroup.Item>
             <ListGroup.Item>
-              Assignment Due Date:{" "}<br/>
+              Assignment Due Date: <br />
               {moduleToDisplay.assignmentDateTimeGivenDue}
             </ListGroup.Item>
             <ListGroup.Item>
