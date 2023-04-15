@@ -29,7 +29,7 @@ const AssignmentTracker = ({ modules }) => {
           <br />
         </div>
       ))}
-      <Link to={"/add/"}>
+      <Link to={"/add/"} className="addModuleBtnLink">
         <div className="d-grid gap-2">
           <Button variant="success" size="lg">
             Add Module

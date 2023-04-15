@@ -32,25 +32,34 @@ header {
 }
 .book {
   color: #145b15;
-  font-size: 20px;
+  font-size: 30px;
 }
 .logo {
   padding-left: 10px;
-  color: #011640;
+  color: #145b15;
   font-weight: 500;
 }
 .link {
-  color: #011640;
+  color: #145b15;
 }
 .searchIcon {
   font-size: 22px;
 }
 .moduleItemName {
   text-align: center;
-  color: #011640;
+  color: #595959;
 }
 
-.moduleLinkCard {
+h2,
+h3,
+h4,
+h5,
+.list-group-item {
+  color: #595959;
+}
+
+.moduleLinkCard,
+.addModuleBtnLink {
   text-decoration: none;
 }
 
