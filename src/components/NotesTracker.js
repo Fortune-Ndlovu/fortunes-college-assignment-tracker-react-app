@@ -1,4 +1,6 @@
 import React from "react";
+import { AiOutlinePlus } from "react-icons/ai";
+import { BiMinus } from "react-icons/bi";
 
 // Created a separate Notes component for the notes functionality
 const NotesTracker = ({ notes, onAddNote, onNoteChange, onDeleteNote }) => {
@@ -30,7 +32,7 @@ const NotesTracker = ({ notes, onAddNote, onNoteChange, onDeleteNote }) => {
             className="btn btn-sm btn-danger"
             id="notesBtn"
           >
-            -
+            <BiMinus />
           </button>
         </div>
       ))}
@@ -39,7 +41,7 @@ const NotesTracker = ({ notes, onAddNote, onNoteChange, onDeleteNote }) => {
         className="btn btn-sm btn-primary"
         id="notesBtn"
       >
-        +
+        <AiOutlinePlus/>
       </button>
     </div>
   );

@@ -58,6 +58,12 @@ h5,
   color: #595959;
 }
 
+svg.plusIcon,
+svg {
+  color: #fff;
+  font-size: 20px;
+}
+
 .moduleLinkCard,
 .addModuleBtnLink {
   text-decoration: none;
