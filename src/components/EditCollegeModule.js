@@ -163,7 +163,7 @@ const EditCollegeModule = ({ modules, onEdit }) => {
       <br />
       <div className="form-group">
         <label htmlFor="assignmentDateTimeGivenOut">
-          Assignment Date and Time Given Out:
+          Assignment Date Given Out:
         </label>
         <input
           type="datetime-local"
@@ -176,7 +176,7 @@ const EditCollegeModule = ({ modules, onEdit }) => {
       <br />
       <div className="form-group">
         <label htmlFor="assignmentDateTimeGivenDue">
-          Assignment Date and Time Given Due:
+          Assignment Date and Time Due:
         </label>
         <input
           type="datetime-local"
@@ -206,7 +206,12 @@ const EditCollegeModule = ({ modules, onEdit }) => {
         onDeleteNote={handleDeleteNote}
       />
       <br />
-      <button type="submit" className="btn btn-success" id="updateCollegeModuleBtn">
+      <br />
+      <button
+        type="submit"
+        className="btn btn-success"
+        id="updateCollegeModuleBtn"
+      >
         Update Module
       </button>
     </form>

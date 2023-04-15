@@ -103,6 +103,20 @@ button#deleteModuleBtn,
   display: flex;
 }
 
+/*Styles for EditCollegeModule.js component */
+#notesBtn {
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+.notesBox {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  gap: 10px;
+}
+
 /*styles the footer component*/
 footer,
 .d-flex,
