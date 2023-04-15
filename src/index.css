@@ -62,7 +62,8 @@ around the main body of our app */
   border-radius: 10px;
 }
 
-button.btn.btn-success.btn-lg {
+button.btn.btn-success.btn-lg,
+button#updateCollegeModuleBtn {
   border-radius: 0.25rem;
 }
 
@@ -80,14 +81,16 @@ button.btn.btn-success.btn-lg {
 
 #addModuleBtn,
 #editModuleBtn,
-#certainlyDeleteModuleBtn {
+#certainlyDeleteModuleBtn,
+#updateCollegeModuleBtn {
   flex-grow: 4;
 }
 
 button#addModuleBtn,
 #editModuleBtn,
 button#deleteModuleBtn,
-#certainlyDeleteModuleBtn {
+#certainlyDeleteModuleBtn,
+#updateCollegeModuleBtn {
   padding-top: 10px;
   padding-bottom: 10px;
 }

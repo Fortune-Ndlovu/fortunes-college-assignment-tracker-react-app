@@ -15,7 +15,6 @@ const EditCollegeModule = ({ modules, onEdit }) => {
   const location = useLocation();
   // Assigning the current location or empty array as the initial value
   const [notes, setNotes] = useState(location.state.notes || []);
-  console.log(" Our Edit Notes:", notes);
   // UseParams to access the URL parameters and extract the moduleID parameter.
   const urlParameters = useParams();
 
@@ -128,7 +127,20 @@ const EditCollegeModule = ({ modules, onEdit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-        <label htmlFor="moduleName">Module Name</label>
+        <label htmlFor="image">Module Image:</label>
+        <input
+          type="file"
+          className="form-control"
+          onChange={handleImageChange}
+        />
+        {userImage && (
+          <img src={userImage} alt="Study books" width="250" height="250" />
+        )}
+        {/* Render other form fields and submit button */}
+      </div>
+      <br />
+      <div className="form-group">
+        <label htmlFor="moduleName">Module Name:</label>
         <input
           type="text"
           className="form-control"
@@ -139,16 +151,7 @@ const EditCollegeModule = ({ modules, onEdit }) => {
       </div>
       <br />
       <div className="form-group">
-        <label htmlFor="image">User Image</label>
-        <input type="file" onChange={handleImageChange} />
-        {userImage && (
-          <img src={userImage} alt="Study books" width="250" height="250" />
-        )}
-        {/* Render other form fields and submit button */}
-      </div>
-      <br />
-      <div className="form-group">
-        <label htmlFor="assignmentName">Assignment Name</label>
+        <label htmlFor="assignmentName">Assignment Name:</label>
         <input
           type="text"
           className="form-control"
@@ -160,7 +163,7 @@ const EditCollegeModule = ({ modules, onEdit }) => {
       <br />
       <div className="form-group">
         <label htmlFor="assignmentDateTimeGivenOut">
-          Assignment Date and Time Given Out
+          Assignment Date and Time Given Out:
         </label>
         <input
           type="datetime-local"
@@ -173,7 +176,7 @@ const EditCollegeModule = ({ modules, onEdit }) => {
       <br />
       <div className="form-group">
         <label htmlFor="assignmentDateTimeGivenDue">
-          Assignment Date and Time Given Due
+          Assignment Date and Time Given Due:
         </label>
         <input
           type="datetime-local"
@@ -183,17 +186,19 @@ const EditCollegeModule = ({ modules, onEdit }) => {
           onChange={handleAssignmentDateTimeGivenDueChange}
         />
       </div>
+      <br />
       <div className="form-group">
-        <br />
-        <label htmlFor="theAssignmentGrade">Assignment Grade</label>
+        <label htmlFor="theAssignmentGrade">Assignment Grade:</label>
         <input
           type="text"
           className="form-control"
+          placeholder="0 %"
           defaultValue={moduleToEdit.grade}
           name="assignmentGrade"
           onChange={handleGradeChange}
         />
       </div>
+      <br />
       <NotesTracker
         notes={notes}
         onAddNote={handleAddNote}
@@ -201,8 +206,8 @@ const EditCollegeModule = ({ modules, onEdit }) => {
         onDeleteNote={handleDeleteNote}
       />
       <br />
-      <button type="submit" className="btn btn-primary">
-        Update
+      <button type="submit" className="btn btn-success" id="updateCollegeModuleBtn">
+        Update Module
       </button>
     </form>
   );
