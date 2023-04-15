@@ -39,6 +39,9 @@ header {
   color: #011640;
   font-weight: 500;
 }
+.link {
+  color: #011640;
+}
 
 button.navbar-toggler.collapsed,
 button.navbar-toggler {

@@ -15,14 +15,18 @@ const Header = () => {
       >
         <Container className="navbar">
           <Link to={"/"} className="logo">
-            <BsFillJournalBookmarkFill className="book"/>
+            <BsFillJournalBookmarkFill className="book" />
             Module Tracker
           </Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Link to={"/"}>Study Tips</Link>
-              <Link to={"/about"}>About Us</Link>
+              <Link to={"/"} className="link">
+                Study Tips
+              </Link>
+              <Link to={"/about"} className="link">
+                About Us
+              </Link>
             </Nav>
 
             <form className="form-inline my-2 my-lg-0">
