@@ -42,6 +42,9 @@ header {
 .link {
   color: #011640;
 }
+.searchIcon {
+  font-size: 22px;
+}
 
 button.navbar-toggler.collapsed,
 button.navbar-toggler {

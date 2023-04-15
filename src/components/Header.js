@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { BsFillJournalBookmarkFill } from "react-icons/bs";
+import { FcSearch } from "react-icons/fc";
+
 const Header = () => {
   return (
     <header>
@@ -42,7 +44,7 @@ const Header = () => {
                     className="btn btn-outline-success my-2 my-sm-0"
                     type="submit"
                   >
-                    Search
+                    <FcSearch className="searchIcon"/>
                   </button>
                 </div>
               </div>
