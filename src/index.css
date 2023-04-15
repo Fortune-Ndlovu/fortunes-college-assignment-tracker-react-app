@@ -72,36 +72,34 @@ button.btn.btn-success.btn-lg {
 }
 
 .moduleAddCancelBtns,
-.moduleEditDeleteBtns {
+.moduleEditBtn {
   display: flex;
   justify-content: space-between;
   gap: 20px;
 }
 
 #addModuleBtn,
-#editModuleBtn {
+#editModuleBtn,
+#certainlyDeleteModuleBtn {
   flex-grow: 4;
 }
 
 button#addModuleBtn,
-#editModuleBtn {
+#editModuleBtn,
+button#deleteModuleBtn,
+#certainlyDeleteModuleBtn {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-#cancelModuleBtn,
-#test {
+#cancelModuleBtn {
   flex-grow: 1;
 }
 
 .moduleTitle {
   display: flex;
 }
-/* #deleteModuleBtn {
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-} */
+
 /*styles the footer component*/
 footer,
 .d-flex,

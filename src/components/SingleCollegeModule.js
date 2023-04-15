@@ -40,22 +40,20 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
           <Card.Body>
             <Card.Title className="moduleTitle">
               <h2>{moduleToDisplay.name}</h2>{" "}
-              <DeleteModule
-                onDelete={onDelete}
-                moduleToDisplay={moduleToDisplay}
-              />
-            </Card.Title>
-            <Card.Title>
-              <h3>{moduleToDisplay.assignmentName}</h3>
             </Card.Title>
           </Card.Body>
           <ListGroup className="list-group-flush">
             <ListGroup.Item>
-              Assignment Date Given Out:{" "}
+              <Card.Title>
+                <h3>{moduleToDisplay.assignmentName}</h3>
+              </Card.Title>
+            </ListGroup.Item>
+            <ListGroup.Item>
+              Assignment Date Given Out:{" "}<br/>
               {moduleToDisplay.assignmentDateTimeGivenOut}
             </ListGroup.Item>
             <ListGroup.Item>
-              Assignment Date Given Due:{" "}
+              Assignment Due Date:{" "}<br/>
               {moduleToDisplay.assignmentDateTimeGivenDue}
             </ListGroup.Item>
             <ListGroup.Item>
@@ -74,22 +72,32 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
                   ))}
               </ul>
             </ListGroup.Item>
+            <ListGroup.Item>
+              {/*  passing the value of the notes property of the moduleToDisplay object as a prop when you navigate to the /module/${updatedModule.id} */}
+              <div className="moduleEditBtn">
+                <Link
+                  to={`/edit/${moduleToDisplay.id}`}
+                  state={{ notes: moduleToDisplay.notes }}
+                  className="btn btn-sm btn-success"
+                  id="editModuleBtn"
+                >
+                  Edit Module
+                </Link>
+              </div>{" "}
+            </ListGroup.Item>
+            <ListGroup.Item>
+              <h4>Danger Zone</h4>
+              <h5>Delete this module</h5>
+              <p>
+                Once you delete a module, there is no going back. Please be
+                certain.
+              </p>
+              <DeleteModule
+                onDelete={onDelete}
+                moduleToDisplay={moduleToDisplay}
+              />
+            </ListGroup.Item>
           </ListGroup>
-          {/*  passing the value of the notes property of the moduleToDisplay object as a prop when you navigate to the /module/${updatedModule.id} */}
-          <div className="moduleEditDeleteBtns">
-            <Link
-              to={`/edit/${moduleToDisplay.id}`}
-              state={{ notes: moduleToDisplay.notes }}
-              className="btn btn-sm btn-success"
-              id="editModuleBtn"
-            >
-              Edit Module
-            </Link>
-            {/* <DeleteModule
-              onDelete={onDelete}
-              moduleToDisplay={moduleToDisplay}
-            /> */}
-          </div>
         </Card>
       ) : (
         <div>Loading module...</div>

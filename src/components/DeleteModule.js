@@ -25,25 +25,38 @@ const DeleteModule = ({ onDelete, moduleToDisplay }) => {
 
   return (
     <div>
-      {/* When this btn is clicked we will redefine the initial value of the state varible to true */}
-      <button
-        className="btn btn-sm btn-danger"
-        id="deleteModuleBtn"
-        onClick={() => setShowForm(true)}
-      >
-        Delete
-      </button>
+      <div className="deleteModuleBtnBox">
+        {/* When this btn is clicked we will redefine the initial value of the state varible to true */}
+        <button
+          type="button"
+          className="btn btn-sm btn-danger"
+          id="deleteModuleBtn"
+          onClick={() => setShowForm(true)}
+        >
+          Delete Module
+        </button>
+      </div>
+
       {/* When the state variable is set to true the form renders*/}
       {showForm && (
         <form onSubmit={handleDelete}>
-          <label>Please Enter the code to delete the module</label>
+          <br />
+          <label htmlFor="deleteModule">
+            Please enter the code to delete the module:
+          </label>
           <input
             type="text"
+            className="form-control"
             placeholder="javascript-is-cool"
             value={code}
             onChange={(e) => setCode(e.target.value)}
           />
-          <button type="submit" className="btn btn-sm btn-danger">
+          <br />
+          <button
+            type="submit"
+            className="btn btn-sm btn-danger"
+            id="certainlyDeleteModuleBtn"
+          >
             Delete this {moduleToDisplay.name} Module
           </button>
         </form>
