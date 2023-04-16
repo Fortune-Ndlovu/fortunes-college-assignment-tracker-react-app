@@ -3,7 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import DeleteModule from "./DeleteModule";
-import { AiFillHome } from "react-icons/ai";
 
 const SingleCollegeModule = ({ modules, onDelete }) => {
   // Using the useParams hook to acess the URL parameters in question.
