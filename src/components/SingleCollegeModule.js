@@ -27,7 +27,7 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
     <div>
  
       {moduleToDisplay ? (
-        <Card>
+        <Card >
           <Card.Img
             variant="top"
             src={
@@ -35,8 +35,7 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
                 ? URL.createObjectURL(moduleToDisplay.image.get("image"))
                 : moduleToDisplay.image
             }
-            width="250"
-            height="250"
+          
             alt="Module Identifier"
             className="cardImgs"
           />

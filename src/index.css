@@ -104,7 +104,13 @@ div#responsive-navbar-nav {
 /* styles for the box that wraps 
 around the main body of our app */
 .structure {
-  padding: 40px 0;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 #appBox {
