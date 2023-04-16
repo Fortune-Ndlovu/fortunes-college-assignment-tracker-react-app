@@ -25,9 +25,8 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
    */
   return (
     <div>
- 
       {moduleToDisplay ? (
-        <Card >
+        <Card>
           <Card.Img
             variant="top"
             src={
@@ -35,7 +34,6 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
                 ? URL.createObjectURL(moduleToDisplay.image.get("image"))
                 : moduleToDisplay.image
             }
-          
             alt="Module Identifier"
             className="cardImgs"
           />
@@ -55,7 +53,7 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
               {moduleToDisplay.assignmentDateTimeGivenOut}
             </ListGroup.Item>
             <ListGroup.Item>
-              Assignment Due Date: <br />
+              Assignment Date and Time: <br />
               {moduleToDisplay.assignmentDateTimeGivenDue}
             </ListGroup.Item>
             <ListGroup.Item>

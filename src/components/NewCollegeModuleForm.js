@@ -38,7 +38,7 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
       let newCollegeModule = {
         name: e.target.modulesName.value,
         assignmentName: e.target.assignmentName,
-        assignmentDateTimeGivenOut: e.target.assignmentDateTimeGivenOut,
+        assignmentDateTimeDue: e.target.assignmentDateTimeDue,
         assignmentDateTimeGivenDue: e.target.assignmentDateTimeGivenDue,
         grade: e.target.grade,
         image: imageRef.current.files[0]

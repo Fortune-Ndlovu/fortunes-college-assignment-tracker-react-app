@@ -16,8 +16,8 @@ const sampleData = [
     id: 1,
     name: "Web Dev Frameworks",
     assignmentName: "Student College Assignment Tracker",
-    assignmentDateTimeGivenOut: "2023-04-05T20:13",
-    assignmentDateTimeGivenDue: "2023-05-05T20:13",
+    assignmentDateGivenOut: "2023-03-29",
+    assignmentDateTimeDue: "2023-05-21T12:00",
     assignmentGrade: "99.7%",
     image: peopleCoding,
     notes: [
