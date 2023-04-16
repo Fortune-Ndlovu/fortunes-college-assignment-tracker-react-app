@@ -1,9 +1,14 @@
 import React from "react";
+import { CgNotes } from "react-icons/cg";
 
 const StudyTips = () => {
   return (
     <div>
-      <h3>StudyTips</h3>
+      <h3>
+        StudyTips
+        <CgNotes className="studyTipsIcon"/>
+      </h3>
+
       <ul>
         <li>
           Ask for help from your teachers, classmates, or online resources if

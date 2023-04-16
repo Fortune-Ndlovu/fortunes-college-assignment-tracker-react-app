@@ -55,7 +55,11 @@ header {
   text-align: center;
   color: #595959;
 }
-
+.studyTipsIcon {
+  color: #4997d7;
+  font-size: 33px;
+  padding-left: 5px;
+}
 h2,
 h3,
 h4,

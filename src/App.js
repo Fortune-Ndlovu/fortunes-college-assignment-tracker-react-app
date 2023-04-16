@@ -105,6 +105,11 @@ function App() {
             <ReturnHomeBtn />
             <div id="appBox">
               <Routes>
+
+                <Route path="/studyTips" element={<StudyTips />} />
+                
+                <Route path="/about" element={<About />} />
+
                 <Route
                   path="/"
                   element={
@@ -122,9 +127,6 @@ function App() {
                     <NewCollegeModuleForm onSubmitHandler={addCollegeModule} />
                   }
                 />
-
-                <Route path="/studyTips" element={<StudyTips />} />
-                <Route path="/about" element={<About />} />
 
                 {/* Any path that starts with "/module/" render the SingleCollegeModule component*/}
                 <Route
