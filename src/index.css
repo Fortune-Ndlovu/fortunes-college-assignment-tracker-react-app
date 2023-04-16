@@ -71,6 +71,10 @@ h5,
   color: #fff;
 }
 
+.aboutUsIcon {
+  color: #e91e63;
+}
+
 svg.homeIcon {
   font-size: 20px;
 }
