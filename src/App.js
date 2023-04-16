@@ -34,8 +34,8 @@ const sampleData = [
     id: 2,
     name: "Server Side Programming",
     assignmentName: "Ecommerce Website",
-    assignmentDateTimeGivenOut: "2023-04-05T20:13",
-    assignmentDateTimeGivenDue: "2023-05-05T20:13",
+    assignmentDateGivenOut: "2023-03-29",
+    assignmentDateTimeDue: "2023-05-21T12:00",
     assignmentGrade: "99.5%",
     image: codingWithLaptop,
     notes: [
