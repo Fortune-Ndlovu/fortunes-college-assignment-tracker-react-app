@@ -49,7 +49,7 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
             </ListGroup.Item>
             <ListGroup.Item>
               Assignment Date Given Out: <br />
-              {moduleToDisplay.assignmentDateTimeGivenOut}
+              {moduleToDisplay.assignmentDateGivenOut}
             </ListGroup.Item>
             <ListGroup.Item>
               Assignment Date and Time: <br />

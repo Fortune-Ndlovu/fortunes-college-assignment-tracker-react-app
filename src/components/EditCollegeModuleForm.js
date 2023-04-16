@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import NotesTracker from "./NotesTracker";
 
-const EditCollegeModule = ({ modules, onEdit }) => {
+const EditCollegeModuleForm = ({ modules, onEdit }) => {
   // State variables used to store different values for different form fields the intial values are empty strings or array
   const [name, setName] = useState("");
   const [userImage, setUserImage] = useState(null);
   const [assignmentName, setAssignmentName] = useState("");
-  const [assignmentDateTimeGivenOut, setAssignmentDateTimeGivenOut] =
+  const [assignmentDateGivenOut, setAssignmentDateGivenOut] =
     useState("");
   const [assignmentDateTimeGivenDue, setAssignmentDateTimeGivenDue] =
     useState("");
@@ -53,8 +53,8 @@ const EditCollegeModule = ({ modules, onEdit }) => {
     setAssignmentName(e.target.value);
   };
 
-  const handleAssignmentDateTimeGivenOutChange = (e) => {
-    setAssignmentDateTimeGivenOut(e.target.value);
+  const handleAssignmentDateGivenOutChange = (e) => {
+    setAssignmentDateGivenOut(e.target.value);
   };
 
   const handleAssignmentDateTimeGivenDueChange = (e) => {
@@ -107,8 +107,8 @@ const EditCollegeModule = ({ modules, onEdit }) => {
       name: name || moduleToEdit.name,
       image: userImage ? formData : moduleToEdit.image,
       assignmentName: assignmentName || moduleToEdit.assignmentName,
-      assignmentDateTimeGivenOut:
-        assignmentDateTimeGivenOut || moduleToEdit.assignmentDateTimeGivenOut,
+      assignmentDateGivenOut:
+        assignmentDateGivenOut || moduleToEdit.assignmentDateGivenOut,
       assignmentDateTimeGivenDue:
         assignmentDateTimeGivenDue || moduleToEdit.assignmentDateTimeGivenDue,
       grade: grade || moduleToEdit.grade,
@@ -159,15 +159,15 @@ const EditCollegeModule = ({ modules, onEdit }) => {
       </div>
       <br />
       <div className="form-group">
-        <label htmlFor="assignmentDateTimeGivenOut">
+        <label htmlFor="assignmentDateGivenOut">
           Assignment Date Given Out:
         </label>
         <input
-          type="datetime-local"
+          type="date"
           className="form-control"
-          defaultValue={moduleToEdit.assignmentDateTimeGivenOut}
-          name="assignmentDateTimeGivenOut"
-          onChange={handleAssignmentDateTimeGivenOutChange}
+          defaultValue={moduleToEdit.assignmentDateGivenOut}
+          name="assignmentDateGivenOut"
+          onChange={handleAssignmentDateGivenOutChange}
         />
       </div>
       <br />
@@ -215,4 +215,4 @@ const EditCollegeModule = ({ modules, onEdit }) => {
   );
 };
 
-export default EditCollegeModule;
+export default EditCollegeModuleForm;

@@ -5,7 +5,7 @@ import NewCollegeModuleForm from "./components/NewCollegeModuleForm";
 import About from "./components/About";
 import StudyTips from "./components/StudyTips.js";
 import SingleCollegeModule from "./components/SingleCollegeModule";
-import EditCollegeModule from "./components/EditCollegeModule";
+import EditCollegeModuleForm from "./components/EditCollegeModuleForm.js";
 import Header from "./components/Header";
 import Footer from "./components/Footer.js";
 import ReturnHomeBtn from "./components/ReturnHomeBtn.js";
@@ -107,7 +107,7 @@ function App() {
               <Routes>
 
                 <Route path="/studyTips" element={<StudyTips />} />
-                
+
                 <Route path="/about" element={<About />} />
 
                 <Route
@@ -143,7 +143,7 @@ function App() {
                 <Route
                   path="/edit/:moduleID"
                   element={
-                    <EditCollegeModule
+                    <EditCollegeModuleForm
                       modules={collegeModules}
                       onEdit={editCollegeModule}
                     />
