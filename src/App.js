@@ -7,7 +7,8 @@ import SingleCollegeModule from "./components/SingleCollegeModule";
 import EditCollegeModule from "./components/EditCollegeModule";
 import Header from "./components/Header";
 import Footer from "./components/Footer.js";
-import studyImage from "./images/study.jpg";
+import peopleCoding from "./images/peopleCoding.jpg";
+import codingWithLaptop from "./images/codingWithLaptop.jpg";
 import ReturnHomeBtn from "./components/ReturnHomeBtn.js";
 // Sample data for testing purposes
 const sampleData = [
@@ -18,7 +19,7 @@ const sampleData = [
     assignmentDateTimeGivenOut: "2023-04-05T20:13",
     assignmentDateTimeGivenDue: "2023-05-05T20:13",
     assignmentGrade: "99.7%",
-    image: studyImage,
+    image: peopleCoding,
     notes: [
       "Create a new entry [5marks]",
       "Update an existing entry [10marks]",
@@ -36,7 +37,7 @@ const sampleData = [
     assignmentDateTimeGivenOut: "2023-04-05T20:13",
     assignmentDateTimeGivenDue: "2023-05-05T20:13",
     assignmentGrade: "99.5%",
-    image: studyImage,
+    image: codingWithLaptop,
     notes: [
       "List categories",
       "List products in these categories.",
