@@ -24,7 +24,7 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
    */
   return (
     <div>
-      {moduleToDisplay ? (
+      {
         <Card>
           <Card.Img
             variant="top"
@@ -98,9 +98,7 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
             </ListGroup.Item>
           </ListGroup>
         </Card>
-      ) : (
-        <div>Loading module...</div>
-      )}
+      }
     </div>
   );
 };
