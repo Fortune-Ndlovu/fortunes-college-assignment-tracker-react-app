@@ -133,9 +133,6 @@ const EditCollegeModule = ({ modules, onEdit }) => {
           className="form-control"
           onChange={handleImageChange}
         />
-        {userImage && (
-          <img src={userImage} alt="Study books" width="250" height="250" />
-        )}
         {/* Render other form fields and submit button */}
       </div>
       <br />
