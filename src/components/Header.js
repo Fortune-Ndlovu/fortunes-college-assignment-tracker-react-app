@@ -42,9 +42,9 @@ const Header = () => {
                 <div className="input-group-prepend">
                   <button
                     className="btn btn-outline-success my-2 my-sm-0"
-                    type="submit"
+                    type="button"
                   >
-                    <FcSearch className="searchIcon"/>
+                    <FcSearch className="searchIcon" />
                   </button>
                 </div>
               </div>
