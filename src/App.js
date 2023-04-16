@@ -1,15 +1,17 @@
-import AssignmentTracker from "./components/AssignmentTracker.js";
-import NewCollegeModuleForm from "./components/NewCollegeModuleForm";
 import { useState } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import AssignmentTracker from "./components/AssignmentTracker.js";
+import NewCollegeModuleForm from "./components/NewCollegeModuleForm";
 import About from "./components/About";
+import StudyTips from "./components/StudyTips.js";
 import SingleCollegeModule from "./components/SingleCollegeModule";
 import EditCollegeModule from "./components/EditCollegeModule";
 import Header from "./components/Header";
 import Footer from "./components/Footer.js";
+import ReturnHomeBtn from "./components/ReturnHomeBtn.js";
 import peopleCoding from "./images/peopleCoding.jpg";
 import codingWithLaptop from "./images/codingWithLaptop.jpg";
-import ReturnHomeBtn from "./components/ReturnHomeBtn.js";
+
 // Sample data for testing purposes
 const sampleData = [
   {
@@ -18,7 +20,7 @@ const sampleData = [
     assignmentName: "Student College Assignment Tracker",
     assignmentDateGivenOut: "2023-03-29",
     assignmentDateTimeDue: "2023-05-21T12:00",
-    assignmentGrade: "99.7%",
+    assignmentGrade: "0 %",
     image: peopleCoding,
     notes: [
       "Create a new entry [5marks]",
@@ -36,7 +38,7 @@ const sampleData = [
     assignmentName: "Ecommerce Website",
     assignmentDateGivenOut: "2023-03-29",
     assignmentDateTimeDue: "2023-05-21T12:00",
-    assignmentGrade: "99.5%",
+    assignmentGrade: "0 %",
     image: codingWithLaptop,
     notes: [
       "List categories",
@@ -121,6 +123,7 @@ function App() {
                   }
                 />
 
+                <Route path="/studyTips" element={<StudyTips />} />
                 <Route path="/about" element={<About />} />
 
                 {/* Any path that starts with "/module/" render the SingleCollegeModule component*/}

@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <div>
-      <p>Made with love by Fortune</p>
+      <p>Made with love by Fortune Ndlovu!</p>
     </div>
   );
 };
