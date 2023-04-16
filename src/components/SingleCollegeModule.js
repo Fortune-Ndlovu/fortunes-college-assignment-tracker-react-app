@@ -24,9 +24,8 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
    * The user can view this information and use the edit btn to modify the module or remove the college module.
    */
   return (
-    <div> <Link to={"/"} className="btn btn-sm btn-success" id="homeIconLink">
-    <AiFillHome className="homeIcon" /> Return home
-  </Link>
+    <div>
+ 
       {moduleToDisplay ? (
         <Card>
           <Card.Img

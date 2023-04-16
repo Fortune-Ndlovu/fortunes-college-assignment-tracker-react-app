@@ -8,7 +8,7 @@ import EditCollegeModule from "./components/EditCollegeModule";
 import Header from "./components/Header";
 import Footer from "./components/Footer.js";
 import studyImage from "./images/study.jpg";
-
+import ReturnHomeBtn from "./components/ReturnHomeBtn.js";
 // Sample data for testing purposes
 const sampleData = [
   {
@@ -95,10 +95,11 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      <Header />{" "}
       <div className="container-sm p-2">
         <div className="structure">
           <div className="container">
+            <ReturnHomeBtn />
             <div id="appBox">
               <Routes>
                 <Route
