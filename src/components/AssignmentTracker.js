@@ -10,7 +10,7 @@ const AssignmentTracker = ({ modules }) => {
       {modules.map((item) => (
         <div className="col-sm-6" key={item.id}>
           <Link to={`/module/${item.id}`} className="moduleLinkCard">
-            <Card>
+            <Card id="homeCard">
               <Card.Img
                 variant="top"
                 src={
