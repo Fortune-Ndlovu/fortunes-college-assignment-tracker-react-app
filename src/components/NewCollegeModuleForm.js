@@ -65,24 +65,24 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
       <div className="form-group">
         <div className="mb-3">
           <label htmlFor="modulesName" className="form-label">
-            Name:{" "}
+           Module Name:{" "}
           </label>
           <input
             type="text"
             className={`form-control ${isNameValid ? "" : "is-invalid"}`}
             id="modulesName"
             name="modulesName"
-            placeholder="Enter Name"
+            placeholder="Enter module name"
             onChange={() => setIsNameValid(true)} // Reset validation when input changes
           />
-          <div className="invalid-feedback">Please add a name.</div>{" "}
+          <div className="invalid-feedback">Please add a module name.</div>{" "}
           {/* Add the invalid-feedback class for displaying validation error message */}
         </div>
       </div>
       <div className="form-group">
         <div className="mb-3">
           <label htmlFor="image" className="form-label">
-            Image:{" "}
+            Module Image:{" "}
           </label>
           <input
             type="file"
@@ -92,7 +92,7 @@ const NewCollegeModuleForm = ({ onSubmitHandler }) => {
             ref={imageRef}
             onChange={() => setIsImageValid(true)} // Reset validation when input changes
           />
-          <div className="invalid-feedback">Please add an image.</div>{" "}
+          <div className="invalid-feedback">Please add a module image.</div>{" "}
           {/* Add the invalid-feedback class for displaying validation error message */}
         </div>
       </div>
