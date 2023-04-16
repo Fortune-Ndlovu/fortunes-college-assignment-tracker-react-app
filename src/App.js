@@ -1,13 +1,14 @@
 import AssignmentTracker from "./components/AssignmentTracker.js";
 import NewCollegeModuleForm from "./components/NewCollegeModuleForm";
 import { useState } from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes, Link } from "react-router-dom";
 import About from "./components/About";
 import SingleCollegeModule from "./components/SingleCollegeModule";
 import EditCollegeModule from "./components/EditCollegeModule";
 import Header from "./components/Header";
 import Footer from "./components/Footer.js";
 import studyImage from "./images/study.jpg";
+import { AiFillHome } from "react-icons/ai";
 
 // Sample data for testing purposes
 const sampleData = [
@@ -99,6 +100,9 @@ function App() {
       <div className="container-sm p-2">
         <div className="structure">
           <div className="container">
+            {/* <Link to={"/"} className="btn btn-sm btn-success" id="homeIconLink">
+              <AiFillHome className="homeIcon" /> Home
+            </Link> */}
             <div id="appBox">
               <Routes>
                 <Route

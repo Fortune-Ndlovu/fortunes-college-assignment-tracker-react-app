@@ -18,7 +18,7 @@ const Footer = () => {
               <Link to={"/"} className="d-flex align-items-center text-dark">
                 <span
                   className="h5 font-weight-bold"
-                  style={{ color: "#145B15" }}
+                  style={{ color: "#145B15", textDecoration: "none" }}
                 >
                   {" "}
                   <BsFillJournalBookmarkFill className="book" />

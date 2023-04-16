@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import DeleteModule from "./DeleteModule";
+import { AiFillHome } from "react-icons/ai";
 
 const SingleCollegeModule = ({ modules, onDelete }) => {
   // Using the useParams hook to acess the URL parameters in question.
@@ -23,7 +24,9 @@ const SingleCollegeModule = ({ modules, onDelete }) => {
    * The user can view this information and use the edit btn to modify the module or remove the college module.
    */
   return (
-    <div>
+    <div> <Link to={"/"} className="btn btn-sm btn-success" id="homeIconLink">
+    <AiFillHome className="homeIcon" /> Return home
+  </Link>
       {moduleToDisplay ? (
         <Card>
           <Card.Img
