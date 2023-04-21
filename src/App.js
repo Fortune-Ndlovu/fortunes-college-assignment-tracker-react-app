@@ -105,7 +105,6 @@ function App() {
             <ReturnHomeBtn />
             <div id="appBox">
               <Routes>
-
                 <Route path="/studyTips" element={<StudyTips />} />
 
                 <Route path="/about" element={<About />} />
@@ -151,6 +150,7 @@ function App() {
                 />
               </Routes>
             </div>
+            <ReturnHomeBtn />
           </div>
         </div>
         <Footer />
